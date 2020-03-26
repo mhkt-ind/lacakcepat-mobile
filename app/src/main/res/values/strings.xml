@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Lacak Cepat</string>
+    <string name="lacak_cepat">Lacak Cepat</string>
+    <string name="splash_overview">Bersama kita cegah penyebaran Covid-19</string>
+    <string name="on_boarding1_title">Melacak Disekitar Anda</string>
+    <string name="on_boarding1_overview">Sistem akan memberi tahu anda jika di sekitar anda terdapat pengguna positif Covid-19.</string>
+    <string name="on_boarding2_title">Pasien Covid - 19</string>
+    <string name="on_boarding2_overview">Memberikan anda informasi mengenai status pasien Covid - 19 di Indonesia secara real time.</string>
+    <string name="on_boarding3_title">Informasi Covid - 19</string>
+    <string name="on_boarding3_overview">Memberikan anda informasi mengenai virus Covid - 19 dan cara pencegehan.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="skip">SKIP</string>
+    <string name="next">Next</string>
+</resources>
