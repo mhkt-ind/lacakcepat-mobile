@@ -6,6 +6,7 @@
 
     <!--Text Color-->
     <color name="blueText">#2D9CDB</color>
+    <color name="blue2Text">#2D9CDB</color>
     <color name="greyText">#828282</color>
     <color name="grey1Text">#333333</color>
 

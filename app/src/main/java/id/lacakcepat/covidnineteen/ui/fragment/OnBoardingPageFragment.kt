@@ -33,7 +33,7 @@ class OnBoardingPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Glide.with(this)
             .load(image)
-            .into(img_league)
+            .into(img_get_started)
 
         textView.text = title
         textView2.text = overview

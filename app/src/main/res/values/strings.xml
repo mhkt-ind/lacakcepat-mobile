@@ -13,4 +13,13 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="skip">SKIP</string>
     <string name="next">Next</string>
+    <string name="get_started_title">Selamat Datang di \nLacak Cepat</string>
+    <string name="get_started_overview">Membantu anda melacak Covid - 19 berdasarkan riwayat interaksi anda dengan orang lain.</string>
+    <string name="masuk_dengan_lacak_cepat_btn">MASUK DENGAN LACAK CEPAT</string>
+    <string name="telepon">TELEPON</string>
+    <string name="google">GOOGLE</string>
+    <string name="dan">dan</string>
+    <string name="terms_of_use">Terms of Use</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="indonesia">Indonesia</string>
 </resources>

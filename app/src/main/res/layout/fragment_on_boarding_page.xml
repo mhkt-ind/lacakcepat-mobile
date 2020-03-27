@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:id="@+id/img_league"
+        android:id="@+id/img_get_started"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_marginBottom="20dp"
