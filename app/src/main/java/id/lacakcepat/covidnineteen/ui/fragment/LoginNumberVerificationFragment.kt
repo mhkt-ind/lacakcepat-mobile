@@ -5,22 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
+import androidx.lifecycle.ViewModelProvider
 
 import id.lacakcepat.covidnineteen.R
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import id.lacakcepat.covidnineteen.viewmodel.LoginViewModel
 
 class LoginNumberVerificationFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
+        val viewModel = activity?.let { ViewModelProvider(it).get(LoginViewModel::class.java) }
+
+        val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
+            viewModel?.fragmentSate?.postValue(1)
         }
+
+        callback.isEnabled = true
     }
 
     override fun onCreateView(
@@ -31,13 +33,6 @@ class LoginNumberVerificationFragment : Fragment() {
     }
 
     companion object {
-
-        fun newInstance(param1: String, param2: String) =
-            LoginNumberVerificationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        fun newInstance(): LoginNumberVerificationFragment = LoginNumberVerificationFragment()
     }
 }

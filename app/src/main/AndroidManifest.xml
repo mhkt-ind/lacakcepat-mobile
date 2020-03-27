@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.OnBoardingPage"
+            android:name=".ui.activity.OnBoardingPageActivity"
             android:theme="@style/NoActionBarAndAnim" />
         <activity
             android:name=".ui.activity.GetStartedActivity"

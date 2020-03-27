@@ -13,7 +13,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         Timer().schedule(timerTask {
-            startActivity(intentFor<OnBoardingPage>())
+            startActivity(intentFor<OnBoardingPageActivity>())
             finish()
         }, 2000)
     }

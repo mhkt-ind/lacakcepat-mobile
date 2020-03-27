@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.OnBoardingPage">
+    tools:context=".ui.activity.OnBoardingPageActivity">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"

@@ -32,4 +32,5 @@
     <string name="tidak_terima_kasih">TIDAK, TERIMA KASIH</string>
     <string name="text_phone_number_hint">813889…</string>
     <string name="kode_notelp_indonesia">+62 |</string>
+    <string name="verifikasi">VERIFIKASI</string>
 </resources>
