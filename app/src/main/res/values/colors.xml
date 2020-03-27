@@ -11,6 +11,7 @@
     <color name="blueText">#2D9CDB</color>
     <color name="greyText">#828282</color>
     <color name="grey1Text">#333333</color>
+    <color name="redColor">#EB5757</color>
 
     <!--Button Color-->
     <color name="grey1Button">#BDBDBD</color>

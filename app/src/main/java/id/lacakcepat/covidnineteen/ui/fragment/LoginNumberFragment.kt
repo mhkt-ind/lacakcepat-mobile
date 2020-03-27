@@ -22,12 +22,12 @@ class LoginNumberFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val viewModel = activity?.let { ViewModelProvider(it).get(LoginViewModel::class.java) }
 
-        tidak_button.setOnClickListener {
-            activity?.finish()
-        }
-
         lanjut_button.setOnClickListener {
             viewModel?.fragmentSate?.postValue(2)
+        }
+
+        tidak_button.setOnClickListener {
+            activity?.finish()
         }
     }
 

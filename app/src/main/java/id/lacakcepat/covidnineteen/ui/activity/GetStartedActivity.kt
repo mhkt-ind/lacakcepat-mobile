@@ -14,7 +14,7 @@ class GetStartedActivity : AppCompatActivity() {
         setContentView(R.layout.activity_get_started)
 
         lacak_cepat_login.setOnClickListener {
-            startActivity(intentFor<LoginActivity>())
+            startActivity(intentFor<LoginActivity>(LOGIN_OPTION to 3))
         }
 
         telepon_login.setOnClickListener {
