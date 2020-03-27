@@ -28,7 +28,11 @@ class OnBoardingPage : AppCompatActivity() {
         view_pager.adapter = pagerAdapter
         tabs.setupWithViewPager(view_pager)
 
-        button2.setOnClickListener {
+        next_btn.setOnClickListener {
+            startActivity(intentFor<GetStartedActivity>())
+        }
+
+        skip_btn.setOnClickListener {
             startActivity(intentFor<GetStartedActivity>())
         }
     }

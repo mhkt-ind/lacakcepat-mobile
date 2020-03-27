@@ -22,4 +22,14 @@
     <string name="terms_of_use">Terms of Use</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="indonesia">Indonesia</string>
+    <string name="login_number_title">Masuk dengan nomor HP</string>
+    <string name="login_number_overview">Masukkan nomor handphone anda untuk melanjutkan menggunakan aplikasi kami.</string>
+    <string name="login_number_verification_title">Kode Verifikasi</string>
+    <string name="login_number_verification_overview">Kami telah mengirim kode verifikasi kepada +62 81388987656</string>
+    <string name="email_verification_title">Email Belum Terverifikasi</string>
+    <string name="email_verification_overview">Akun anda belum di verifikasi. Silahkan tekan tombol “KIRIM EMAIL VERIFIKASI” untuk memverifikasi akun anda.</string>
+    <string name="lanjutkan">Lanjutkan</string>
+    <string name="tidak_terima_kasih">TIDAK, TERIMA KASIH</string>
+    <string name="text_phone_number_hint">813889…</string>
+    <string name="kode_notelp_indonesia">+62 |</string>
 </resources>

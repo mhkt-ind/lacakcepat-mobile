@@ -24,8 +24,11 @@
         <activity
             android:name=".ui.activity.OnBoardingPage"
             android:theme="@style/NoActionBarAndAnim" />
-        <activity android:name=".ui.activity.GetStartedActivity"
+        <activity
+            android:name=".ui.activity.GetStartedActivity"
             android:theme="@style/NoActionBarAndAnim" />
+        <activity android:name=".ui.activity.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.activity.MainActivity"
             android:theme="@style/AppTheme.NoAnimation" />
