@@ -6,6 +6,7 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import id.lacakcepat.covidnineteen.di.component.AppComponent
 import id.lacakcepat.covidnineteen.di.component.DaggerAppComponent
+import id.lacakcepat.covidnineteen.di.module.ApiModule
 import javax.inject.Inject
 
 class LacakCepatApp : Application(), HasAndroidInjector {
@@ -22,6 +23,7 @@ class LacakCepatApp : Application(), HasAndroidInjector {
 
         component = DaggerAppComponent.builder()
             .application(this)
+            .apiModule(ApiModule())
             .build()
         component.inject(this)
     }

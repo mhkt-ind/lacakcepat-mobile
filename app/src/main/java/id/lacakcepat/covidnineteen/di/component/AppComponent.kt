@@ -5,13 +5,15 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import id.lacakcepat.covidnineteen.LacakCepatApp
+import id.lacakcepat.covidnineteen.di.module.ApiModule
 import id.lacakcepat.covidnineteen.di.module.AppModule
 import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
     AndroidInjectionModule::class,
-    AppModule::class
+    AppModule::class,
+    ApiModule::class
 ])
 
 interface AppComponent {
@@ -19,6 +21,8 @@ interface AppComponent {
     interface Builder {
         @BindsInstance
         fun application(app: Application): Builder
+        @BindsInstance
+        fun apiModule(apiModule: ApiModule): Builder
         fun build(): AppComponent
     }
 

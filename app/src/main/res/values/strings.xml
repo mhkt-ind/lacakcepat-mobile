@@ -45,4 +45,6 @@
     <string name="masukCaps">MASUK</string>
     <string name="kirim_email_verifikasi">KIRIM EMAIL VERIFIKASI</string>
     <string name="nama">Nama</string>
+    <string name="nama_min_4_karakter">Nama min 4 karakter!</string>
+    <string name="nomor_telepon_tidak_boleh_kosong">Nomor telepon tidak boleh kosong!</string>
 </resources>

@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/redColor"
-            android:text="@string/email_tidak_benar"
+            android:text="@string/nama_min_4_karakter"
             app:layout_constraintEnd_toEndOf="@+id/namaInput"
             app:layout_constraintTop_toBottomOf="@+id/namaInput" />
 
@@ -47,7 +47,7 @@
             android:id="@+id/emailInput"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/email"
@@ -67,20 +67,53 @@
             app:layout_constraintTop_toBottomOf="@+id/emailInput" />
 
         <EditText
+            android:id="@+id/phoneInput"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:autofillHints="@string/text_phone_number_hint"
+            android:ems="10"
+            android:hint="@string/text_phone_number_hint"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="@+id/emailInput"
+            app:layout_constraintStart_toEndOf="@+id/phoneText"
+            app:layout_constraintTop_toBottomOf="@+id/emailInput" />
+
+        <TextView
+            android:id="@+id/phoneError"
+            style="@style/TextContent.Standard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/redColor"
+            android:text="@string/nomor_telepon_tidak_boleh_kosong"
+            app:layout_constraintEnd_toEndOf="@+id/phoneInput"
+            app:layout_constraintTop_toBottomOf="@+id/phoneInput" />
+
+        <TextView
+            android:id="@+id/phoneText"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="@string/kode_notelp_indonesia"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/phoneInput"
+            app:layout_constraintStart_toStartOf="@+id/emailInput"
+            app:layout_constraintTop_toTopOf="@+id/phoneInput" />
+
+        <EditText
             android:id="@+id/passwordInput"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/password"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailInput" />
+            app:layout_constraintTop_toBottomOf="@+id/phoneInput" />
 
         <TextView
-            android:id="@+id/adwsd"
+            android:id="@+id/passwordError"
             style="@style/TextContent.Standard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
