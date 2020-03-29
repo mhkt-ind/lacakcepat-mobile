@@ -54,9 +54,9 @@ class OnBoardingPageActivity : AppCompatActivity() {
                 fragmentState = position
 
                 if(fragmentState == listFragment.size - 1) {
-                    next_btn.setBackgroundResource(R.drawable.ic_round_button_finish)
+                    next_btn.setImageResource(R.drawable.ic_check)
                 } else {
-                    next_btn.setBackgroundResource(R.drawable.ic_round_button_next)
+                    next_btn.setImageResource(R.drawable.ic_next)
                 }
             }
 

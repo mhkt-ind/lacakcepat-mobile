@@ -39,8 +39,6 @@ class LoginActivity : AppCompatActivity() {
         return when(id){
             1 -> LoginNumberFragment.newInstance()
             2 -> LoginNumberVerificationFragment.newInstance()
-            3 -> LoginLacakFragment.newInstance()
-            4 -> EmailVerificationFragment.newInstance()
             5 -> RegisterLacakFragment.newInstance()
             else -> LoginNumberFragment.newInstance()
         }

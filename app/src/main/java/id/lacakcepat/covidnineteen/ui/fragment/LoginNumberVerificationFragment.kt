@@ -9,7 +9,10 @@ import androidx.activity.addCallback
 import androidx.lifecycle.ViewModelProvider
 
 import id.lacakcepat.covidnineteen.R
+import id.lacakcepat.covidnineteen.ui.activity.MainActivity
 import id.lacakcepat.covidnineteen.viewmodel.LoginViewModel
+import kotlinx.android.synthetic.main.fragment_login_number_verification.*
+import org.jetbrains.anko.support.v4.intentFor
 
 class LoginNumberVerificationFragment : Fragment() {
 
@@ -30,6 +33,12 @@ class LoginNumberVerificationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_login_number_verification, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        verifikasi_button.setOnClickListener {
+            activity?.startActivity(intentFor<MainActivity>())
+        }
     }
 
     companion object {

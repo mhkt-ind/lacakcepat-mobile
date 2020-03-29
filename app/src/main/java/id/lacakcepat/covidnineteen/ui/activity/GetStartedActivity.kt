@@ -13,12 +13,12 @@ class GetStartedActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_get_started)
 
-        lacak_cepat_login.setOnClickListener {
-            startActivity(intentFor<LoginActivity>(LOGIN_OPTION to 3))
+        masuk_button.setOnClickListener {
+            startActivity(intentFor<LoginActivity>(LOGIN_OPTION to 1))
         }
 
-        telepon_login.setOnClickListener {
-            startActivity(intentFor<LoginActivity>(LOGIN_OPTION to 1))
+        daftar_button.setOnClickListener {
+            startActivity(intentFor<LoginActivity>(LOGIN_OPTION to 5))
         }
     }
 }

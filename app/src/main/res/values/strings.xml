@@ -9,14 +9,9 @@
     <string name="on_boarding3_title">Informasi Covid - 19</string>
     <string name="on_boarding3_overview">Memberikan anda informasi mengenai virus Covid - 19 dan cara pencegehan.</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="skip">SKIP</string>
-    <string name="next">Next</string>
     <string name="get_started_title">Selamat Datang di \nLacak Cepat</string>
     <string name="get_started_overview">Membantu anda melacak Covid - 19 berdasarkan riwayat interaksi anda dengan orang lain.</string>
-    <string name="masuk_dengan_lacak_cepat_btn">MASUK DENGAN LACAK CEPAT</string>
-    <string name="telepon">TELEPON</string>
-    <string name="google">GOOGLE</string>
     <string name="dan">dan</string>
     <string name="terms_of_use">Terms of Use</string>
     <string name="privacy_policy">Privacy Policy</string>
@@ -25,26 +20,15 @@
     <string name="login_number_overview">Masukkan nomor handphone anda untuk melanjutkan menggunakan aplikasi kami.</string>
     <string name="login_number_verification_title">Kode Verifikasi</string>
     <string name="login_number_verification_overview">Kami telah mengirim kode verifikasi kepada +62 81388987656</string>
-    <string name="email_verification_title">Email Belum Terverifikasi</string>
-    <string name="email_verification_overview">Akun anda belum di verifikasi. Silahkan tekan tombol “KIRIM EMAIL VERIFIKASI” untuk memverifikasi akun anda.</string>
     <string name="lanjutkan">Lanjutkan</string>
     <string name="tidak_terima_kasih">TIDAK, TERIMA KASIH</string>
     <string name="text_phone_number_hint">813889…</string>
     <string name="kode_notelp_indonesia">+62 |</string>
     <string name="verifikasi">VERIFIKASI</string>
-    <string name="email_tidak_benar">Email tidak benar!</string>
-    <string name="password_tidak_boleh_kosong">Password tidak boleh kosong!</string>
-    <string name="lupa_password">Lupa password?</string>
     <string name="masuk">Masuk</string>
-    <string name="belum_memiliki_akun">Belum memiliki akun?</string>
     <string name="daftar">Daftar</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="daftarCaps">DAFTAR</string>
-    <string name="sudah_memiliki_akun">Sudah memiliki akun?</string>
-    <string name="masukCaps">MASUK</string>
-    <string name="kirim_email_verifikasi">KIRIM EMAIL VERIFIKASI</string>
     <string name="nama">Nama</string>
     <string name="nama_min_4_karakter">Nama min 4 karakter!</string>
     <string name="nomor_telepon_tidak_boleh_kosong">Nomor telepon tidak boleh kosong!</string>
+    <string name="next_button">Next Button</string>
 </resources>

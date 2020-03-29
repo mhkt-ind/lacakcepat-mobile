@@ -22,12 +22,8 @@ class RegisterLacakFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val viewModel = activity?.let { ViewModelProvider(it).get(LoginViewModel::class.java) }
 
-        masuk_button.setOnClickListener {
-            viewModel?.fragmentSate?.postValue(3)
-        }
-
         daftar_button.setOnClickListener {
-            viewModel?.fragmentSate?.postValue(4)
+            viewModel?.fragmentSate?.postValue(2)
         }
     }
 
