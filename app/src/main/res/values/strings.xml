@@ -31,4 +31,8 @@
     <string name="nama_min_4_karakter">Nama min 4 karakter!</string>
     <string name="nomor_telepon_tidak_boleh_kosong">Nomor telepon tidak boleh kosong!</string>
     <string name="next_button">Next Button</string>
+    <string name="beranda">Beranda</string>
+    <string name="riwayat_interaksi">Riwayat Interaksi</string>
+    <string name="notifikasi">Notifikasi</string>
+    <string name="profil">Profil</string>
 </resources>
