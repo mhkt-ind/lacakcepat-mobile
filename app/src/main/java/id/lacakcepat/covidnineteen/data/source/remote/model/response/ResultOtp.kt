@@ -1,12 +1,13 @@
 package id.lacakcepat.covidnineteen.data.source.remote.model.response
 
+
 import com.google.gson.annotations.SerializedName
 
-data class ConditionsResponse(
-    @SerializedName("code")
-    val code: Int,
+data class ResultOtp(
     @SerializedName("data")
-    val conditionsData: ConditionsData,
+    val registerData: RegisterData,
+    @SerializedName("message")
+    val message: String,
     @SerializedName("status")
-    val status: String
+    val status: Boolean
 )

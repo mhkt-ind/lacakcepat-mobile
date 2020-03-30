@@ -1,8 +1,9 @@
 package id.lacakcepat.covidnineteen.data.source.remote.model.response
 
+
 import com.google.gson.annotations.SerializedName
 
-data class OTPMessage(
+data class RegisterMessage(
     @SerializedName("id")
     val id: String,
     @SerializedName("phone")
