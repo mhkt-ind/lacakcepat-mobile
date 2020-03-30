@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_case_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="4dp"
+            android:text="\u2022 DKI Jakarta"
+            android:textAppearance="@style/TextContent.Medium"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_case_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terkonfirmasi : 627"
+            android:textAppearance="@style/TextContent.Standard" />
+
+        <TextView
+            android:id="@+id/tv_case_cure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sembuh : 43"
+            android:textAppearance="@style/TextContent.Standard"
+            android:textColor="@color/greenColor" />
+
+        <TextView
+            android:id="@+id/tv_case_death"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meninggal : 62"
+            android:textAppearance="@style/TextContent.Standard"
+            android:textColor="@color/redColor" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

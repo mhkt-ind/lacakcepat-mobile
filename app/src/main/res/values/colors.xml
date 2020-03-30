@@ -14,10 +14,14 @@
     <color name="greyText">#828282</color>
     <color name="grey1Text">#333333</color>
     <color name="grey2Text">#EBEBEB</color>
-    <color name="redColor">#EB5757</color>
 
     <!--Button Color-->
     <color name="grey1Button">#BDBDBD</color>
 
+    <!--Covid Case Info-->
+    <color name="blueColor">#2D9CDB</color>
+    <color name="redColor">#EB5757</color>
+    <color name="yellowColor">#F2C94C</color>
+    <color name="greenColor">#27AE60</color>
 
 </resources>
