@@ -2,7 +2,9 @@ package id.lacakcepat.covidnineteen.utilities
 
 import android.content.SharedPreferences
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class SharedPreference @Inject constructor(private val sharedPref: SharedPreferences) {
 
     fun save(KEY_NAME: String, text: String) {
@@ -27,7 +29,7 @@ class SharedPreference @Inject constructor(private val sharedPref: SharedPrefere
 
     fun getValueInt(KEY_NAME: String): Int = sharedPref.getInt(KEY_NAME, 0)
 
-    fun getValueBoolien(KEY_NAME: String, defaultValue: Boolean): Boolean = sharedPref.getBoolean(KEY_NAME, defaultValue)
+    fun getValueBoolean(KEY_NAME: String, defaultValue: Boolean): Boolean = sharedPref.getBoolean(KEY_NAME, defaultValue)
 
     fun clearSharedPreference() {
         val editor: SharedPreferences.Editor = sharedPref.edit()
