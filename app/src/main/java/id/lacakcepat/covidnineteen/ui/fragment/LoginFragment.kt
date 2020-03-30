@@ -14,7 +14,6 @@ import id.lacakcepat.covidnineteen.utilities.SharedPreference
 import id.lacakcepat.covidnineteen.utilities.afterTextChanged
 import id.lacakcepat.covidnineteen.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
-import org.jetbrains.anko.support.v4.share
 import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
 

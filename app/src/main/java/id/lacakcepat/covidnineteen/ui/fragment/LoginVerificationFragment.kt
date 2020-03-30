@@ -1,6 +1,5 @@
 package id.lacakcepat.covidnineteen.ui.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,13 +13,10 @@ import id.lacakcepat.covidnineteen.ui.activity.MainActivity
 import id.lacakcepat.covidnineteen.utilities.SharedPreference
 import id.lacakcepat.covidnineteen.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_login_number_verification.*
-import org.jetbrains.anko.clearTop
-import org.jetbrains.anko.newTask
 import org.jetbrains.anko.singleTop
 import org.jetbrains.anko.support.v4.intentFor
 import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
-
 
 class LoginVerificationFragment : Fragment() {
 
