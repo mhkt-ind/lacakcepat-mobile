@@ -19,7 +19,7 @@
     <string name="login_number_title">Masuk dengan nomor HP</string>
     <string name="login_number_overview">Masukkan nomor handphone anda untuk melanjutkan menggunakan aplikasi kami.</string>
     <string name="login_number_verification_title">Kode Verifikasi</string>
-    <string name="login_number_verification_overview">Kami telah mengirim kode verifikasi kepada +62 81388987656</string>
+    <string name="login_number_verification_overview">Kami telah mengirim kode verifikasi kepada +62</string>
     <string name="lanjutkan">Lanjutkan</string>
     <string name="tidak_terima_kasih">TIDAK, TERIMA KASIH</string>
     <string name="text_phone_number_hint">813889…</string>
@@ -35,5 +35,7 @@
     <string name="riwayat_interaksi">Riwayat Interaksi</string>
     <string name="notifikasi">Notifikasi</string>
     <string name="profil">Profil</string>
-    <string name="searchView_hint">Cari daerah persebaran disini...</string>
+    <string name="name_error">Nama tidak boleh kosong dan minimal 4 huruf</string>
+    <string name="phone_error">Nomor HP tidak boleh kosong dan antara 11 sampai 16 angka</string>
+    <string name="otp_error">Kode yang kamu masukkan salah</string>
 </resources>

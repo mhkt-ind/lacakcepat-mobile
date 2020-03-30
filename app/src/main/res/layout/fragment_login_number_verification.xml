@@ -38,7 +38,7 @@
             app:layout_constraintTop_toBottomOf="@+id/img_logo" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/overview"
             style="@style/TextContent.Standard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -63,9 +63,8 @@
             app:height="40dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/overview"
             app:length="4"
-            app:otp="1234"
             app:otp_text_size="24dp"
             app:width="40dp" />
 

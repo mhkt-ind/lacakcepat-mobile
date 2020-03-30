@@ -13,5 +13,7 @@ data class RegisterResponse(
     @SerializedName("status")
     val status: String,
     @SerializedName("token")
-    val token: String
+    val token: String,
+    @SerializedName("message")
+    val message: String
 )

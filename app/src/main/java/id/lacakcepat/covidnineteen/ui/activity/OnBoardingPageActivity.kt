@@ -4,17 +4,24 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
+import dagger.android.AndroidInjection
 import id.lacakcepat.covidnineteen.R
 import id.lacakcepat.covidnineteen.ui.adapter.OnBoardingPageAdapter
 import id.lacakcepat.covidnineteen.ui.fragment.OnBoardingPageFragment
+import id.lacakcepat.covidnineteen.utilities.SharedPreference
 import kotlinx.android.synthetic.main.activity_onboarding.*
 import org.jetbrains.anko.intentFor
+import javax.inject.Inject
 
 class OnBoardingPageActivity : AppCompatActivity() {
 
     private var fragmentState: Int = 0
 
+    @set:Inject
+    lateinit var sharedPref: SharedPreference
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding)
 
@@ -34,14 +41,18 @@ class OnBoardingPageActivity : AppCompatActivity() {
 
         next_btn.setOnClickListener {
             if(fragmentState == listFragment.size - 1) {
+                sharedPref.save("ONBOARDING", true)
                 startActivity(intentFor<GetStartedActivity>())
+                finish()
             } else {
                 view_pager.currentItem = fragmentState + 1
             }
         }
 
         skip_btn.setOnClickListener {
+            sharedPref.save("ONBOARDING", true)
             startActivity(intentFor<GetStartedActivity>())
+            finish()
         }
 
         view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
