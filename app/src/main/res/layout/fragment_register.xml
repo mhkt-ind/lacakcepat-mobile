@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -38,11 +39,12 @@
             app:layout_constraintTop_toBottomOf="@+id/textTitle" />
 
         <TextView
+            android:id="@+id/namaError"
             style="@style/TextContent.Standard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/redColor"
-            android:text="@string/nama_min_4_karakter"
+            tools:text="@string/nama_min_4_karakter"
             app:layout_constraintEnd_toEndOf="@+id/namaInput"
             app:layout_constraintTop_toBottomOf="@+id/namaInput" />
 
@@ -69,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/redColor"
-            android:text="@string/nomor_telepon_tidak_boleh_kosong"
+            tools:text="@string/nomor_telepon_tidak_boleh_kosong"
             app:layout_constraintEnd_toEndOf="@+id/phoneInput"
             app:layout_constraintTop_toBottomOf="@+id/phoneInput" />
 
@@ -90,7 +92,8 @@
             android:layout_marginTop="100dp"
             android:layout_marginBottom="50dp"
             android:text="@string/daftar"
-            android:background="@drawable/pill_button"
+            android:enabled="false"
+            android:background="@drawable/pill_button_disable"
             android:textColor="@color/whiteText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

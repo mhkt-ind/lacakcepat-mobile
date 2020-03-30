@@ -5,10 +5,7 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import id.lacakcepat.covidnineteen.LacakCepatApp
-import id.lacakcepat.covidnineteen.di.module.ApiModule
-import id.lacakcepat.covidnineteen.di.module.AppModule
-import id.lacakcepat.covidnineteen.di.module.RepositoryModule
-import id.lacakcepat.covidnineteen.di.module.SharedPrefModule
+import id.lacakcepat.covidnineteen.di.module.*
 import javax.inject.Singleton
 
 @Singleton
@@ -17,7 +14,10 @@ import javax.inject.Singleton
     AppModule::class,
     ApiModule::class,
     RepositoryModule::class,
-    SharedPrefModule::class
+    SharedPrefModule::class,
+    ActivityModule::class,
+    FragmentModule::class,
+    ViewModelModule::class
 ])
 
 interface AppComponent {
