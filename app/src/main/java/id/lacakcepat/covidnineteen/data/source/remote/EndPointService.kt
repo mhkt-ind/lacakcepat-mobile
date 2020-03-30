@@ -1,6 +1,7 @@
 package id.lacakcepat.covidnineteen.data.source.remote
 
 import dagger.Module
+import id.lacakcepat.covidnineteen.data.source.remote.model.response.LoginResponse
 import id.lacakcepat.covidnineteen.data.source.remote.model.response.RegisterResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -14,4 +15,10 @@ interface EndPointService {
         @Field("fullname") fullName: String,
         @Field("phone_number") phoneNumber: String
     ) : RegisterResponse
+
+    @FormUrlEncoded
+    @POST("rest/login")
+    suspend fun loginUser(
+        @Field("phone_number") phoneNumber: String
+    ) : LoginResponse
 }
