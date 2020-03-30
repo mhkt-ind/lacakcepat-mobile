@@ -14,7 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.COVIDCase"></activity>
         <activity
             android:name=".ui.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -37,6 +36,7 @@
         <activity
             android:name=".ui.activity.MainActivity"
             android:theme="@style/AppTheme.NoAnimation" />
+        <activity android:name=".ui.activity.COVIDCase" />
     </application>
 
 </manifest>

@@ -21,12 +21,16 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         Timer().schedule(timerTask {
-            if(sharedPref.getValueBoolean("ONBOARDING", false)) {
-                startActivity(intentFor<GetStartedActivity>())
-            } else if (sharedPref.getValueBoolean("GETSTARTED", false)) {
-                startActivity(intentFor<MainActivity>())
-            } else {
-                startActivity(intentFor<OnBoardingPageActivity>())
+            when {
+                sharedPref.getValueBoolean("ONBOARDING", false) -> {
+                    startActivity(intentFor<GetStartedActivity>())
+                }
+                sharedPref.getValueBoolean("GETSTARTED", false) -> {
+                    startActivity(intentFor<MainActivity>())
+                }
+                else -> {
+                    startActivity(intentFor<OnBoardingPageActivity>())
+                }
             }
             finish()
         }, 2000)
