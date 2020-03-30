@@ -77,7 +77,6 @@
             android:layout_marginBottom="50dp"
             android:text="@string/verifikasi"
             android:background="@drawable/pill_button"
-            android:backgroundTint="@color/blueText"
             android:textColor="@color/whiteText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

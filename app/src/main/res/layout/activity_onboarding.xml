@@ -49,7 +49,6 @@
         android:layout_height="50dp"
         android:layout_marginBottom="20dp"
         android:src="@drawable/ic_next"
-        android:backgroundTint="@color/blueText"
         android:stateListAnimator="@animator/button_selector"
         android:background="@drawable/ic_round_button"
         app:layout_constraintBottom_toBottomOf="parent"
