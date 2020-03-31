@@ -65,6 +65,7 @@ class RegisterFragment : Fragment() {
                         sharedPref.save("OTP", it.data.otpCode)
                         sharedPref.save("PHONENUMBER", phoneInput.text.toString())
                         viewModel.fragmentSate.postValue(2)
+                        viewModel.registerData.postValue(Result.Empty("Cleared"))
                     } else {
                         daftar_button.isEnabled = true
                         daftar_button.setBackgroundResource(R.drawable.pill_button)

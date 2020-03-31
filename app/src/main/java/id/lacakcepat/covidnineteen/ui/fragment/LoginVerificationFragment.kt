@@ -59,8 +59,9 @@ class LoginVerificationFragment : Fragment() {
         val viewModel = activity?.let { ViewModelProvider(it, viewModelFactory).get(LoginViewModel::class.java) }
 
         if(otp_view.otp?.toInt() == sharedPref.getValueInt("OTP")) {
-            if(sharedPref.getValueBoolean("ISLOGEDIN", false)) {
+            if(sharedPref.getValueBoolean("ISLOGIN", false)) {
                 sharedPref.removeValue("OTP")
+                sharedPref.save("GETSTARTED", true)
                 activity?.startActivity(intentFor<MainActivity>().singleTop())
                 activity?.finish()
             } else {

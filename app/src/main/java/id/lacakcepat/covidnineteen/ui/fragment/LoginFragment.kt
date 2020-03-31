@@ -60,7 +60,7 @@ class LoginFragment : Fragment() {
                     if(it.data?.code == 200) {
                         sharedPref.save("OTP", it.data.otpCode)
                         sharedPref.save("TOKEN", it.data.token)
-                        sharedPref.save("ISLOGEDIN", true)
+                        sharedPref.save("ISLOGIN", true)
                         sharedPref.save("PHONENUMBER", phoneInput.text.toString())
                         viewModel.fragmentSate.postValue(2)
                         viewModel.loginData.postValue(Result.Empty("Cleared"))

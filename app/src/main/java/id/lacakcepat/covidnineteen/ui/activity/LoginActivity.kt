@@ -65,9 +65,4 @@ class LoginActivity : AppCompatActivity() {
             fragment = setFragment(id)
         }
     }
-
-    override fun onBackPressed() {
-        sharedPref.removeValue("OTP")
-        super.onBackPressed()
-    }
 }
