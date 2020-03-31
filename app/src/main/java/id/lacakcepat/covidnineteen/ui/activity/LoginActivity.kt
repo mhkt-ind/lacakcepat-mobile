@@ -3,7 +3,6 @@ package id.lacakcepat.covidnineteen.ui.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import dagger.android.AndroidInjection
@@ -22,7 +21,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private var fragment: Fragment? = null
-    private lateinit var fragmentTransaction: FragmentTransaction
 
     @set:Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -57,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(id: Int?) {
-        fragmentTransaction = supportFragmentManager.beginTransaction()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
         if(fragment != null) {
             fragmentTransaction.replace(R.id.fragment_container, setFragment(id))
             fragmentTransaction.commit()
