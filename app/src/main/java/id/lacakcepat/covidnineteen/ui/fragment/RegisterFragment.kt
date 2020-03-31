@@ -99,6 +99,10 @@ class RegisterFragment : Fragment() {
             daftar_button.setBackgroundResource(R.drawable.pill_button_disable)
             viewModel?.registerUser(namaInput.text.toString(), phoneInput.text.toString())
         }
+
+        back_button.setOnClickListener {
+            activity?.finish()
+        }
     }
 
     companion object {

@@ -93,6 +93,10 @@ class LoginFragment : Fragment() {
         tidak_button.setOnClickListener {
             activity?.finish()
         }
+
+        back_button.setOnClickListener {
+            activity?.finish()
+        }
     }
 
     companion object {

@@ -39,4 +39,5 @@
     <string name="phone_error">Nomor HP tidak boleh kosong dan antara 11 sampai 16 angka</string>
     <string name="otp_error">Kode yang kamu masukkan salah</string>
     <string name="searchView_hint">Cari daerah persebaran disini…</string>
+    <string name="back_button">Back Button</string>
 </resources>

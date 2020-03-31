@@ -9,17 +9,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="50dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:contentDescription="@string/back_button"
+            android:src="@drawable/ic_back"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/textTitle"
             style="@style/TextContent.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="32dp"
             android:text="@string/daftar"
             android:textColor="@color/grey1Text"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/back_button" />
 
         <EditText
             android:id="@+id/namaInput"
