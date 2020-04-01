@@ -2,6 +2,7 @@ package id.lacakcepat.covidnineteen.di.module
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import id.lacakcepat.covidnineteen.ui.activity.CovidCaseActivity
 import id.lacakcepat.covidnineteen.ui.activity.LoginActivity
 import id.lacakcepat.covidnineteen.ui.activity.OnBoardingPageActivity
 import id.lacakcepat.covidnineteen.ui.activity.SplashActivity
@@ -16,4 +17,7 @@ abstract class ActivityModule {
 
     @ContributesAndroidInjector
     abstract fun bindOnBoardingPageActivity(): OnBoardingPageActivity
+
+    @ContributesAndroidInjector
+    abstract fun bindCovidCaseActivity(): CovidCaseActivity
 }

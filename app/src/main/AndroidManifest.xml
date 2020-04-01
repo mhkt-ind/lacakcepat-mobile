@@ -42,7 +42,7 @@
         <activity
             android:name=".ui.activity.MainActivity"
             android:theme="@style/AppTheme.NoAnimation" />
-        <activity android:name=".ui.activity.COVIDCaseActivity"
+        <activity android:name=".ui.activity.CovidCaseActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
