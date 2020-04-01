@@ -2,6 +2,7 @@ package id.lacakcepat.covidnineteen.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import id.lacakcepat.covidnineteen.R
 import id.lacakcepat.covidnineteen.ui.activity.LoginActivity.Companion.LOGIN_OPTION
 import kotlinx.android.synthetic.main.activity_get_started.*
@@ -19,6 +20,13 @@ class GetStartedActivity : AppCompatActivity() {
 
         daftar_button.setOnClickListener {
             startActivity(intentFor<LoginActivity>(LOGIN_OPTION to 5))
+        }
+
+        flags.setOnClickListener {
+            val dialog = BottomSheetDialog(this)
+            val view = layoutInflater.inflate(R.layout.dialog_layout, null)
+            dialog.setContentView(view)
+            dialog.show()
         }
     }
 }

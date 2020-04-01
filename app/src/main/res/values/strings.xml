@@ -40,4 +40,6 @@
     <string name="otp_error">Kode yang kamu masukkan salah</string>
     <string name="searchView_hint">Cari daerah persebaran disini…</string>
     <string name="back_button">Back Button</string>
+    <string name="pilih_bahasa">Pilih Bahasa</string>
+    <string name="mau_pakai_bahasa_apa">Mau pakai bahasa apa?</string>
 </resources>
