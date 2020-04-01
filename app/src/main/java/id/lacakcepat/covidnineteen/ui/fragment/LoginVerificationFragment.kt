@@ -1,5 +1,6 @@
 package id.lacakcepat.covidnineteen.ui.fragment
 
+import `in`.aabhasjindal.otptextview.OTPListener
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +14,6 @@ import id.lacakcepat.covidnineteen.ui.activity.MainActivity
 import id.lacakcepat.covidnineteen.utilities.SharedPreference
 import id.lacakcepat.covidnineteen.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_login_number_verification.*
-import org.jetbrains.anko.singleTop
 import org.jetbrains.anko.support.v4.intentFor
 import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
@@ -53,6 +53,15 @@ class LoginVerificationFragment : Fragment() {
         verifikasi_button.setOnClickListener {
             goToMain()
         }
+
+        otp_view.otpListener = object : OTPListener {
+            override fun onInteractionListener() {}
+
+            override fun onOTPComplete(otp: String) {
+                verifikasi_button.isEnabled = true
+                verifikasi_button.setBackgroundResource(R.drawable.pill_button)
+            }
+        }
     }
 
     private fun goToMain() {
@@ -62,12 +71,14 @@ class LoginVerificationFragment : Fragment() {
             if(sharedPref.getValueBoolean("ISLOGIN", false)) {
                 sharedPref.removeValue("OTP")
                 sharedPref.save("GETSTARTED", true)
-                activity?.startActivity(intentFor<MainActivity>().singleTop())
+                activity?.startActivity(intentFor<MainActivity>())
                 activity?.finish()
             } else {
                 viewModel?.fragmentSate?.postValue(1)
             }
         } else {
+            verifikasi_button.isEnabled = false
+            verifikasi_button.setBackgroundResource(R.drawable.pill_button_disable)
             toast(R.string.otp_error)
         }
     }
