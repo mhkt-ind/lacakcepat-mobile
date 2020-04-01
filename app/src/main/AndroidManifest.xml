@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.OnBoardingPageActivity"
+            android:name=".ui.activity.OnBoardingActivity"
             android:theme="@style/NoActionBarAndAnim" />
         <activity
             android:name=".ui.activity.GetStartedActivity"

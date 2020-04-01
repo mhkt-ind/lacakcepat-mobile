@@ -9,7 +9,6 @@ import id.lacakcepat.covidnineteen.R
 import id.lacakcepat.covidnineteen.data.source.remote.model.response.kawalcorona.ProvinceDataCase
 import kotlinx.android.synthetic.main.item_case_province.view.*
 
-
 class ProvinceDataCaseAdapter(private var list: List<ProvinceDataCase?> = arrayListOf()) :
     RecyclerView.Adapter<ProvinceDataCaseAdapter.ProvinceViewHolder>() {
 
@@ -28,7 +27,7 @@ class ProvinceDataCaseAdapter(private var list: List<ProvinceDataCase?> = arrayL
 
         holder.tvProvince.text = "\u2022 "+province?.provinsi.toString()
         holder.tvConfirm.text = "Konfirmasi : "+province?.kasusPosi.toString()
-        holder.tvCure.text ="Sembuh : "+ province?.kasusSemb.toString()
+        holder.tvCure.text = "Sembuh : "+ province?.kasusSemb.toString()
         holder.tvDeath.text = "Meninggal : "+province?.kasusMeni.toString()
     }
 

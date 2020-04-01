@@ -33,7 +33,12 @@ class LoginVerificationFragment : Fragment() {
         val viewModel = activity?.let { ViewModelProvider(it, viewModelFactory).get(LoginViewModel::class.java) }
 
         val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
-            viewModel?.fragmentSate?.postValue(1)
+            if(sharedPref.getValueBoolean("ISLOGIN", false)) {
+                viewModel?.fragmentSate?.postValue(1)
+                sharedPref.save("ISLOGIN", false)
+            } else {
+                viewModel?.fragmentSate?.postValue(5)
+            }
         }
 
         callback.isEnabled = true
@@ -65,17 +70,10 @@ class LoginVerificationFragment : Fragment() {
     }
 
     private fun goToMain() {
-        val viewModel = activity?.let { ViewModelProvider(it, viewModelFactory).get(LoginViewModel::class.java) }
-
         if(otp_view.otp?.toInt() == sharedPref.getValueInt("OTP")) {
-            if(sharedPref.getValueBoolean("ISLOGIN", false)) {
-                sharedPref.removeValue("OTP")
-                sharedPref.save("GETSTARTED", true)
-                activity?.startActivity(intentFor<MainActivity>())
-                activity?.finish()
-            } else {
-                viewModel?.fragmentSate?.postValue(1)
-            }
+            sharedPref.save("GETSTARTED", true)
+            activity?.startActivity(intentFor<MainActivity>())
+            activity?.finish()
         } else {
             verifikasi_button.isEnabled = false
             verifikasi_button.setBackgroundResource(R.drawable.pill_button_disable)
