@@ -22,11 +22,11 @@ class SplashActivity : AppCompatActivity() {
 
         Timer().schedule(timerTask {
             when {
-                sharedPref.getValueBoolean("ONBOARDING", false) -> {
-                    startActivity(intentFor<GetStartedActivity>())
-                }
                 sharedPref.getValueBoolean("GETSTARTED", false) -> {
                     startActivity(intentFor<MainActivity>())
+                }
+                sharedPref.getValueBoolean("ONBOARDING", false) -> {
+                    startActivity(intentFor<GetStartedActivity>())
                 }
                 else -> {
                     startActivity(intentFor<OnBoardingPageActivity>())
