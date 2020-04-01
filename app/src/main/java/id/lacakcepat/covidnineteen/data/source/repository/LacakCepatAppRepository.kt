@@ -9,6 +9,7 @@ import javax.inject.Singleton
 @Singleton
 class
 LacakCepatAppRepository @Inject constructor(private val service: EndPointService) {
+
     suspend fun loginUser(phoneNumber: String): Result<LoginResponse?> {
         return try {
             Result.Success(

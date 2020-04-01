@@ -42,7 +42,14 @@
         <activity
             android:name=".ui.activity.MainActivity"
             android:theme="@style/AppTheme.NoAnimation" />
-        <activity android:name=".ui.activity.COVIDCase" />
+        <activity android:name=".ui.activity.COVIDCaseActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service android:name=".service.ScanService" />
     </application>
