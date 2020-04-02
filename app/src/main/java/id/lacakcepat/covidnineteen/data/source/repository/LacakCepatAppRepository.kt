@@ -1,14 +1,14 @@
 package id.lacakcepat.covidnineteen.data.source.repository
 
-import id.lacakcepat.covidnineteen.data.source.remote.LacakCepatService
-import id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat.LoginResponse
-import id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat.RegisterResponse
+import id.lacakcepat.covidnineteen.data.source.remote.EndPointService
+import id.lacakcepat.covidnineteen.data.source.remote.model.response.LoginResponse
+import id.lacakcepat.covidnineteen.data.source.remote.model.response.RegisterResponse
 import javax.inject.Inject
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Singleton
-class LacakCepatRepository @Inject constructor(@Named("LacakCepat") private val service: LacakCepatService) {
+class
+LacakCepatAppRepository @Inject constructor(private val service: EndPointService) {
 
     suspend fun loginUser(phoneNumber: String): Result<LoginResponse?> {
         return try {

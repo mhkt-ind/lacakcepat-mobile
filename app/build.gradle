@@ -25,8 +25,7 @@ android {
     }
 
     defaultConfig {
-        buildConfigField("String", "LACAK_CEPAT_URL", rootProject['app.base_url'])
-        buildConfigField("String", "KAWAL_CORONA_URL", rootProject['app.kawal_corona_url'])
+        buildConfigField("String", "BASE_URL", rootProject['app.base_url'])
         buildConfigField("String", "SECRET_KEY", rootProject['app.secret_key'])
     }
 
