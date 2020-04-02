@@ -17,20 +17,31 @@ class ProvinceDataCaseAdapter(private var list: List<ProvinceDataCase?> = arrayL
         return ProvinceViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.item_case_province,
-                parent,
-                false
+                parent, false
             )
         )
+    }
+
+    fun setData(list: List<ProvinceDataCase?>) {
+        this.list = list
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ProvinceViewHolder, position: Int) {
         val province = list[position]?.provinceDataItem
 
-        holder.tvProvince.text = "\u2022 "+province?.provinsi.toString()
-        holder.tvConfirm.text = "Konfirmasi : "+province?.kasusPosi.toString()
-        holder.tvCure.text ="Sembuh : "+ province?.kasusSemb.toString()
-        holder.tvDeath.text = "Meninggal : "+province?.kasusMeni.toString()
+        val provinceText = "\u2022 " + province?.provinsi.toString()
+        val confirm = "Konfirmasi : " + province?.kasusPosi.toString()
+        val cure = "Sembuh : " + province?.kasusSemb.toString()
+        val death = "Meninggal : " + province?.kasusMeni.toString()
+
+        holder.tvProvince.text = provinceText
+        holder.tvConfirm.text = confirm
+        holder.tvCure.text = cure
+        holder.tvDeath.text = death
     }
+
+
 
     override fun getItemCount(): Int {
         return list.size

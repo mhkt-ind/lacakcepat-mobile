@@ -9,6 +9,7 @@ import id.lacakcepat.covidnineteen.data.source.repository.KawalCoronaAppReposito
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 import javax.inject.Inject
 
 
@@ -19,7 +20,7 @@ class CovidCaseViewModel @Inject constructor(private val repository: KawalCorona
     var provinceCase: MutableLiveData<List<ProvinceDataCase?>> = MutableLiveData()
 
     private val country = "indonesia"
-    val province = "provinsi"
+    private val province = "provinsi"
 
     fun getCountry() {
         repository.getCountry(country)?.enqueue(object : Callback<CountryDataCase?> {
@@ -29,7 +30,7 @@ class CovidCaseViewModel @Inject constructor(private val repository: KawalCorona
             }
 
             override fun onResponse(call: Call<CountryDataCase?>, response: Response<CountryDataCase?>) {
-                var data = response.body()
+                val data = response.body()
                 countryCase.postValue(data?.get(0))
             }
 
@@ -46,10 +47,16 @@ class CovidCaseViewModel @Inject constructor(private val repository: KawalCorona
                 call: Call<List<ProvinceDataCase?>>,
                 response: Response<List<ProvinceDataCase?>>
             ) {
-                var data = response.body()
+                val data = response.body()
                 provinceCase.postValue(data)
             }
         })
+    }
+
+    fun getFilterProvince(query:String?):List<ProvinceDataCase?>?{
+        return provinceCase.value?.filter {
+            it?.provinceDataItem?.provinsi!!.toLowerCase(Locale.getDefault()).contains(query!!)
+        }
     }
 
 }
