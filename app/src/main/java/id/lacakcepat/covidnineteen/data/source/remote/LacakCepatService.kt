@@ -1,14 +1,14 @@
 package id.lacakcepat.covidnineteen.data.source.remote
 
 import dagger.Module
-import id.lacakcepat.covidnineteen.data.source.remote.model.response.LoginResponse
-import id.lacakcepat.covidnineteen.data.source.remote.model.response.RegisterResponse
+import id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat.LoginResponse
+import id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat.RegisterResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 @Module
-interface EndPointService {
+interface LacakCepatService {
     @FormUrlEncoded
     @POST("register")
     suspend fun registerUser(

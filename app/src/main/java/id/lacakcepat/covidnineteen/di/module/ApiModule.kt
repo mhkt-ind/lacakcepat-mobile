@@ -5,11 +5,13 @@ import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import id.lacakcepat.covidnineteen.BuildConfig
-import id.lacakcepat.covidnineteen.data.source.remote.EndPointService
+import id.lacakcepat.covidnineteen.data.source.remote.KawalCoronaService
+import id.lacakcepat.covidnineteen.data.source.remote.LacakCepatService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 
 import javax.inject.Singleton
 
@@ -17,10 +19,10 @@ import javax.inject.Singleton
 class ApiModule {
     @Provides
     @Singleton
-    fun provideInterceptor(): OkHttpClient {
+    @Named("LacakCepat")
+    fun provideLacakCepatInterceptor(): OkHttpClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
             .setLevel(HttpLoggingInterceptor.Level.BODY)
-
         return OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor)
             .addInterceptor {
                 val requestBuilder = it.request().newBuilder()
@@ -32,14 +34,25 @@ class ApiModule {
 
     @Provides
     @Singleton
-    fun provideGson(): Gson =
-        GsonBuilder().create()
+    @Named("KawalCorona")
+    fun provideKawalCoronaInterceptor(): OkHttpClient {
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+            .setLevel(HttpLoggingInterceptor.Level.BODY)
+        return OkHttpClient.Builder()
+            .addInterceptor(httpLoggingInterceptor)
+            .build()
+    }
 
     @Provides
     @Singleton
-    fun provideRetrofit(client: OkHttpClient, gson: Gson): Retrofit {
+    fun provideGson(): Gson = GsonBuilder().create()
+
+    @Provides
+    @Singleton
+    @Named("LacakCepat")
+    fun provideLacakCepat(@Named("LacakCepat")client: OkHttpClient, gson: Gson): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(BuildConfig.LACAK_CEPAT_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
@@ -47,6 +60,22 @@ class ApiModule {
 
     @Provides
     @Singleton
-    fun provideEndPointService(retrofit: Retrofit): EndPointService =
-        retrofit.create(EndPointService::class.java)
+    @Named("KawalCorona")
+    fun provideKawalCorona(@Named("KawalCorona")client: OkHttpClient, gson: Gson): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BuildConfig.KAWAL_CORONA_URL)
+            .client(client)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideLacakCepatService(@Named("LacakCepat")retrofit: Retrofit): LacakCepatService =
+        retrofit.create(LacakCepatService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideKawalCoronaService(@Named("KawalCorona")retrofit: Retrofit): KawalCoronaService =
+        retrofit.create(KawalCoronaService::class.java)
 }
