@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.OnBoardingPageActivity"
+            android:name=".ui.activity.OnBoardingActivity"
             android:theme="@style/NoActionBarAndAnim" />
         <activity
             android:name=".ui.activity.GetStartedActivity"
@@ -41,7 +41,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.activity.MainActivity"
-            android:theme="@style/AppTheme.NoAnimation" />
+            android:theme="@style/NoActionBarAndAnim" />
         <activity android:name=".ui.activity.CovidCaseActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

@@ -1,4 +1,4 @@
-package id.lacakcepat.covidnineteen.data.source.remote.model.response
+package id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat
 
 
 import com.google.gson.annotations.SerializedName

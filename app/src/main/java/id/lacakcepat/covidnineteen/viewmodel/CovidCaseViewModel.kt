@@ -2,9 +2,10 @@ package id.lacakcepat.covidnineteen.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import id.lacakcepat.covidnineteen.data.source.remote.model.response.kawalcorona.CountryDataCase
+import androidx.lifecycle.viewModelScope
 import id.lacakcepat.covidnineteen.data.source.remote.model.response.kawalcorona.CountryDataCaseItem
 import id.lacakcepat.covidnineteen.data.source.remote.model.response.kawalcorona.ProvinceDataCase
+
 import id.lacakcepat.covidnineteen.data.source.repository.KawalCoronaAppRepository
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,12 +13,11 @@ import retrofit2.Response
 import java.util.*
 import javax.inject.Inject
 
-
-class CovidCaseViewModel @Inject constructor(private val repository: KawalCoronaAppRepository) :
+class CovidCaseViewModel @Inject constructor(private val repository: KawalCoronaRepository) :
     ViewModel() {
 
-    var countryCase: MutableLiveData<CountryDataCaseItem?> = MutableLiveData()
-    var provinceCase: MutableLiveData<List<ProvinceDataCase?>> = MutableLiveData()
+    var countryCase: MutableLiveData<Result<List<CountryDataCaseItem?>>> = MutableLiveData()
+    var provinceCase: MutableLiveData<Result<List<ProvinceDataCase?>>> = MutableLiveData()
 
     private val country = "indonesia"
     private val province = "provinsi"
@@ -58,5 +58,4 @@ class CovidCaseViewModel @Inject constructor(private val repository: KawalCorona
             it?.provinceDataItem?.provinsi!!.toLowerCase(Locale.getDefault()).contains(query!!)
         }
     }
-
 }

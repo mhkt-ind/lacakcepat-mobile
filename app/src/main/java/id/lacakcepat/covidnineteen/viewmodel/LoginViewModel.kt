@@ -4,16 +4,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import id.lacakcepat.covidnineteen.R
-import id.lacakcepat.covidnineteen.data.source.remote.model.response.LoginResponse
-import id.lacakcepat.covidnineteen.data.source.remote.model.response.RegisterResponse
+import id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat.LoginResponse
+import id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat.RegisterResponse
 import id.lacakcepat.covidnineteen.data.source.remote.model.FormState
-import id.lacakcepat.covidnineteen.data.source.repository.LacakCepatAppRepository
+import id.lacakcepat.covidnineteen.data.source.repository.LacakCepatRepository
 import id.lacakcepat.covidnineteen.data.source.repository.Result
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class LoginViewModel @Inject constructor(private val repository: LacakCepatAppRepository): ViewModel() {
+class LoginViewModel @Inject constructor(private val repository: LacakCepatRepository): ViewModel() {
     var fragmentSate: MutableLiveData<Int> = MutableLiveData()
 
     var loginData: MutableLiveData<Result<LoginResponse?>> = MutableLiveData()
