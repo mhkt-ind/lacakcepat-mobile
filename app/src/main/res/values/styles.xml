@@ -41,8 +41,18 @@
         <item name="android:fontFamily">@font/poppins_medium</item>
     </style>
 
+    <style name="TextContent.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
     <style name="TextContent.Standard">
         <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+
+    <style name="TextContent.Small">
+        <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">@font/poppins</item>
     </style>
 

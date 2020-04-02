@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import dagger.android.support.AndroidSupportInjection
 import id.lacakcepat.covidnineteen.R
+import id.lacakcepat.covidnineteen.data.source.remote.model.FormState
 import id.lacakcepat.covidnineteen.data.source.repository.Result
 import id.lacakcepat.covidnineteen.utilities.SharedPreference
 import id.lacakcepat.covidnineteen.utilities.afterTextChanged
@@ -63,9 +64,12 @@ class RegisterFragment : Fragment() {
                 is Result.Success -> {
                     if(it.data?.code == 200) {
                         sharedPref.save("OTP", it.data.otpCode)
+                        sharedPref.save("TOKEN", it.data.token)
                         sharedPref.save("PHONENUMBER", phoneInput.text.toString())
+
                         viewModel.fragmentSate.postValue(2)
                         viewModel.registerData.postValue(Result.Empty("Cleared"))
+                        viewModel.formState.value = FormState(isDataValid = false)
                     } else {
                         daftar_button.isEnabled = true
                         daftar_button.setBackgroundResource(R.drawable.pill_button)
