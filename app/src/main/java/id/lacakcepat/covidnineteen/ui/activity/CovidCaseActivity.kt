@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_covidcase.*
 import org.jetbrains.anko.configuration
 
 
-class COVIDCaseActivity : AppCompatActivity() {
+class CovidCaseActivity : AppCompatActivity() {
 
     private var repository = KawalCoronaAppRepository()
     private var viewModel = CovidCaseViewModel(repository)
