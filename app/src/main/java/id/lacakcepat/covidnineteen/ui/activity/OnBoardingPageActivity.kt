@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_onboarding.*
 import org.jetbrains.anko.intentFor
 import javax.inject.Inject
 
-class OnBoardingActivity : AppCompatActivity() {
+class OnBoardingPageActivity : AppCompatActivity() {
 
     private var fragmentState: Int = 0
 

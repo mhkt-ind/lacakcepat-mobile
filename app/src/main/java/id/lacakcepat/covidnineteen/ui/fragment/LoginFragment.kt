@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import dagger.android.support.AndroidSupportInjection
 import id.lacakcepat.covidnineteen.R
-import id.lacakcepat.covidnineteen.data.source.remote.model.FormState
 import id.lacakcepat.covidnineteen.data.source.repository.Result
 import id.lacakcepat.covidnineteen.utilities.SharedPreference
 import id.lacakcepat.covidnineteen.utilities.afterTextChanged
@@ -63,10 +62,8 @@ class LoginFragment : Fragment() {
                         sharedPref.save("TOKEN", it.data.token)
                         sharedPref.save("ISLOGIN", true)
                         sharedPref.save("PHONENUMBER", phoneInput.text.toString())
-
                         viewModel.fragmentSate.postValue(2)
                         viewModel.loginData.postValue(Result.Empty("Cleared"))
-                        viewModel.formState.value = FormState(isDataValid = false)
                     } else {
                         lanjut_button.isEnabled = true
                         lanjut_button.setBackgroundResource(R.drawable.pill_button)

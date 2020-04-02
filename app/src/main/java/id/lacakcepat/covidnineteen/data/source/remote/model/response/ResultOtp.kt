@@ -1,8 +1,7 @@
-package id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat
+package id.lacakcepat.covidnineteen.data.source.remote.model.response
 
 
 import com.google.gson.annotations.SerializedName
-import id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat.RegisterData
 
 data class ResultOtp(
     @SerializedName("data")
