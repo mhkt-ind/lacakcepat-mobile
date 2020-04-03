@@ -1,6 +1,7 @@
 package id.lacakcepat.covidnineteen.data.source.repository
 
 import id.lacakcepat.covidnineteen.data.source.remote.LacakCepatService
+import id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat.ConditionsResponse
 import id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat.LoginResponse
 import id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat.RegisterResponse
 import javax.inject.Inject
@@ -31,6 +32,22 @@ class LacakCepatRepository @Inject constructor(@Named("LacakCepat") private val 
                 service.registerUser(
                     fullName,
                     phoneNumber
+                )
+            )
+        } catch(e: Exception) {
+            Result.Error(e)
+        }
+    }
+
+    suspend fun sendConditions(
+        health: String,
+        userId: String
+    ): Result<ConditionsResponse?> {
+        return try {
+            Result.Success(
+                service.sendConditions(
+                    health,
+                    userId
                 )
             )
         } catch(e: Exception) {

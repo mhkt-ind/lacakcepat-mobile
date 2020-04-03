@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import id.lacakcepat.covidnineteen.ui.activity.CovidCaseActivity
 import id.lacakcepat.covidnineteen.ui.activity.LoginActivity
+import id.lacakcepat.covidnineteen.ui.activity.MainActivity
 import id.lacakcepat.covidnineteen.ui.activity.OnBoardingActivity
 import id.lacakcepat.covidnineteen.ui.activity.SplashActivity
 
@@ -20,4 +21,7 @@ abstract class ActivityModule {
 
     @ContributesAndroidInjector
     abstract fun bindCovidCaseActivity(): CovidCaseActivity
+
+    @ContributesAndroidInjector
+    abstract fun bindMainActivity(): MainActivity
 }

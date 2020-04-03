@@ -9,6 +9,7 @@ import id.lacakcepat.covidnineteen.di.factory.ViewModelFactory
 import id.lacakcepat.covidnineteen.di.scope.ViewModelKey
 import id.lacakcepat.covidnineteen.viewmodel.CovidCaseViewModel
 import id.lacakcepat.covidnineteen.viewmodel.LoginViewModel
+import id.lacakcepat.covidnineteen.viewmodel.MainViewModel
 
 @Module
 abstract class ViewModelModule {
@@ -24,4 +25,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(CovidCaseViewModel::class)
     protected abstract fun covidCaseViewModel(model: CovidCaseViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MainViewModel::class)
+    protected abstract fun mainViewModel(model: MainViewModel): ViewModel
 }

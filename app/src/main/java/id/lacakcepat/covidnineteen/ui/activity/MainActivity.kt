@@ -12,14 +12,28 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.ColorUtils
 import androidx.core.view.forEach
+import androidx.lifecycle.ViewModelProvider
+import dagger.android.AndroidInjection
 import id.lacakcepat.covidnineteen.R
+import id.lacakcepat.covidnineteen.utilities.SharedPreference
+import id.lacakcepat.covidnineteen.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
     private var isPopUp = true
 
+    @set:Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    @set:Inject
+    lateinit var sharedPref: SharedPreference
+
+    private lateinit var viewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         overridePendingTransition(0, 0)
         setContentView(R.layout.activity_main)
@@ -39,6 +53,23 @@ class MainActivity : AppCompatActivity() {
         popup_window_view_with_border.animate().alpha(1f).setDuration(500).setInterpolator(
             DecelerateInterpolator()
         ).start()
+
+        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+
+        positive_button.setOnClickListener {
+            removePopUpHandler()
+            viewModel.sendConditions("POSITIF", sharedPref.getValueString("USERID").toString())
+        }
+
+        odp_button.setOnClickListener {
+            removePopUpHandler()
+            viewModel.sendConditions("ODP", sharedPref.getValueString("USERID").toString())
+        }
+
+        sehat_button.setOnClickListener {
+            removePopUpHandler()
+            viewModel.sendConditions("SEHAT", sharedPref.getValueString("USERID").toString())
+        }
     }
 
     override fun onBackPressed() {
