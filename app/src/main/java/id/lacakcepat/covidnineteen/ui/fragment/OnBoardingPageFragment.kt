@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import id.lacakcepat.covidnineteen.R
-import kotlinx.android.synthetic.main.fragment_on_boarding_page.*
+import kotlinx.android.synthetic.main.fragment_on_boarding.*
 
 class OnBoardingPageFragment : Fragment() {
     private var title: String? = null
@@ -27,7 +27,7 @@ class OnBoardingPageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_on_boarding_page, container, false)
+        return inflater.inflate(R.layout.fragment_on_boarding, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

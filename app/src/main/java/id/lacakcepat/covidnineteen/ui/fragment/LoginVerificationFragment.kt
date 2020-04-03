@@ -13,7 +13,7 @@ import id.lacakcepat.covidnineteen.R
 import id.lacakcepat.covidnineteen.ui.activity.MainActivity
 import id.lacakcepat.covidnineteen.utilities.SharedPreference
 import id.lacakcepat.covidnineteen.viewmodel.LoginViewModel
-import kotlinx.android.synthetic.main.fragment_login_number_verification.*
+import kotlinx.android.synthetic.main.fragment_verification.*
 import org.jetbrains.anko.support.v4.intentFor
 import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
@@ -48,7 +48,7 @@ class LoginVerificationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_login_number_verification, container, false)
+        return inflater.inflate(R.layout.fragment_verification, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

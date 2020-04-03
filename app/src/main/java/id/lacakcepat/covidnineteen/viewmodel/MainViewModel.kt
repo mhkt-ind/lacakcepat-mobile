@@ -11,6 +11,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(private val repository: LacakCepatRepository): ViewModel() {
+    var fragmentSate: MutableLiveData<Int> = MutableLiveData()
+
     var conditions: MutableLiveData<Result<ConditionsResponse?>> = MutableLiveData()
 
     fun sendConditions(health: String, userId: String) {

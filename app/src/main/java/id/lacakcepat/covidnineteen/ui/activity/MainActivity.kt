@@ -12,9 +12,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.ColorUtils
 import androidx.core.view.forEach
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import dagger.android.AndroidInjection
 import id.lacakcepat.covidnineteen.R
+import id.lacakcepat.covidnineteen.ui.fragment.*
 import id.lacakcepat.covidnineteen.utilities.SharedPreference
 import id.lacakcepat.covidnineteen.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,6 +34,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var sharedPref: SharedPreference
 
     private lateinit var viewModel: MainViewModel
+
+    private var fragment: Fragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -55,6 +60,15 @@ class MainActivity : AppCompatActivity() {
         ).start()
 
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+        viewModel.fragmentSate.observe(this, Observer { id ->
+            replaceFragment(id)
+        })
+
+        if(viewModel.fragmentSate.value == null) {
+            viewModel.fragmentSate.postValue(R.id.beranda)
+        } else {
+            fragment = setFragment(viewModel.fragmentSate.value)
+        }
 
         positive_button.setOnClickListener {
             removePopUpHandler()
@@ -72,6 +86,13 @@ class MainActivity : AppCompatActivity() {
             removePopUpHandler()
             sharedPref.save("CONDITIONS", "SEHAT")
             viewModel.sendConditions("SEHAT", sharedPref.getValueString("USERID").toString())
+        }
+
+        nav_view.setOnNavigationItemSelectedListener {
+            item -> run {
+                replaceFragment(item.itemId)
+                return@setOnNavigationItemSelectedListener true
+            }
         }
     }
 
@@ -118,5 +139,27 @@ class MainActivity : AppCompatActivity() {
             }
         })
         colorAnimation.start()
+    }
+
+    private fun setFragment(id: Int?): Fragment {
+        return when(id){
+            R.id.beranda -> BerandaFragment.newInstance()
+            R.id.riwayat_interaksi -> RiwayatFragment.newInstance()
+            R.id.notifikasi -> NotifikasiFragment.newInstance()
+            R.id.profil -> ProfilFragment.newInstance()
+            else -> BerandaFragment.newInstance()
+        }
+    }
+
+    private fun replaceFragment(id: Int?) {
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        if(fragment != null) {
+            fragmentTransaction.replace(R.id.fragment_container, setFragment(id))
+            fragmentTransaction.commit()
+        } else {
+            fragmentTransaction.add(R.id.fragment_container, setFragment(id))
+            fragmentTransaction.commit()
+            fragment = setFragment(id)
+        }
     }
 }
