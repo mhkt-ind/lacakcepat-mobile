@@ -9,7 +9,7 @@ data class LoginResponse(
     val otpCode: Int,
     @SerializedName("status")
     val status: String,
-    @SerializedName("users_data")
+    @SerializedName("user_data")
     val loginData: LoginData,
     @SerializedName("message")
     val message: String,
