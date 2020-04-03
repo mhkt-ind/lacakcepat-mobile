@@ -9,6 +9,7 @@ import retrofit2.http.Path
 
 @Module
 interface KawalCoronaService {
+
     @GET("{country}")
     suspend fun getCountryDataCase(
         @Path("country") country: String
