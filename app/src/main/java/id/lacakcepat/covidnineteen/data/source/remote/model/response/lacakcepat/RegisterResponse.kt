@@ -1,6 +1,5 @@
 package id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat
 
-
 import com.google.gson.annotations.SerializedName
 
 data class RegisterResponse(
@@ -15,5 +14,7 @@ data class RegisterResponse(
     @SerializedName("token")
     val token: String,
     @SerializedName("message")
-    val message: String
+    val message: String,
+    @SerializedName("id_user")
+    val userId: String
 )

@@ -1,6 +1,5 @@
 package id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat
 
-
 import com.google.gson.annotations.SerializedName
 
 data class LoginResponse(
@@ -11,7 +10,7 @@ data class LoginResponse(
     @SerializedName("status")
     val status: String,
     @SerializedName("users_data")
-    val usersData: UsersData,
+    val loginData: LoginData,
     @SerializedName("message")
     val message: String,
     @SerializedName("token")

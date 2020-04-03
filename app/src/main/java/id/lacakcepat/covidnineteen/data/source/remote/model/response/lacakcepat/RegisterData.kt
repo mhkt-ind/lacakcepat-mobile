@@ -1,6 +1,5 @@
 package id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat
 
-
 import com.google.gson.annotations.SerializedName
 
 data class RegisterData(
