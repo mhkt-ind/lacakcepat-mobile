@@ -58,16 +58,19 @@ class MainActivity : AppCompatActivity() {
 
         positive_button.setOnClickListener {
             removePopUpHandler()
+            sharedPref.save("CONDITIONS", "POSITIF")
             viewModel.sendConditions("POSITIF", sharedPref.getValueString("USERID").toString())
         }
 
         odp_button.setOnClickListener {
             removePopUpHandler()
+            sharedPref.save("CONDITIONS", "ODP")
             viewModel.sendConditions("ODP", sharedPref.getValueString("USERID").toString())
         }
 
         sehat_button.setOnClickListener {
             removePopUpHandler()
+            sharedPref.save("CONDITIONS", "SEHAT")
             viewModel.sendConditions("SEHAT", sharedPref.getValueString("USERID").toString())
         }
     }
