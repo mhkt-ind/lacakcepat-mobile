@@ -18,7 +18,7 @@ class CovidCaseViewModel @Inject constructor(private val repository: KawalCorona
     var provinceCase: MutableLiveData<Result<List<ProvinceDataCase?>>> = MutableLiveData()
 
     private val country = "indonesia"
-    val province = "provinsi"
+    private val province = "provinsi"
 
     fun getCountry() {
         viewModelScope.launch {
@@ -33,4 +33,11 @@ class CovidCaseViewModel @Inject constructor(private val repository: KawalCorona
             provinceCase.postValue(proviceResource.await())
         }
     }
+
+//    fun getFilterProvince(query:String?):List<ProvinceDataCase?>?{
+//        return provinceCase.value?.filter {
+//            it?.provinceDataItem?.provinsi!!.toLowerCase(Locale.getDefault()).contains(query!!)
+//        }
+//    }
+
 }

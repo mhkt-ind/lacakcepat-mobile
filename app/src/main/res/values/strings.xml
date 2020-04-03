@@ -42,4 +42,13 @@
     <string name="back_button">Back Button</string>
     <string name="pilih_bahasa">Pilih Bahasa</string>
     <string name="mau_pakai_bahasa_apa">Mau pakai bahasa apa?</string>
+    <string name="case_confirmed"> Kasus terkonfirmasi</string>
+    <string name="case_tryAgain">Kami tidak dapat menemukan daerah yang anda maksud silahkan coba lagi!</string>
+    <string name="case_opps">Upps!</string>
+    <string name="case_province">Kasus Perprovinsi</string>
+    <string name="image">TODO</string>
+    <string name="all_case_covid">Semua Kasus Covid - 19</string>
+    <string name="pdp">PDP</string>
+    <string name="cure">Sembuh</string>
+    <string name="death">Meninggal</string>
 </resources>
