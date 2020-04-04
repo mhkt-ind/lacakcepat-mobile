@@ -234,7 +234,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="1,046"
-                        android:textColor="@color/blueColor"
+                        android:textColor="@color/yellowColor"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/perawatanImg" />
@@ -244,7 +244,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="Dalam Perawatan"
-                        android:textColor="@color/blueColor"
+                        android:textColor="@color/yellowColor"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/perawatanTitle" />
@@ -282,7 +282,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="1,046"
-                        android:textColor="@color/blueColor"
+                        android:textColor="@color/greenColor"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/sembuhImg" />
@@ -292,7 +292,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="Sembuh"
-                        android:textColor="@color/blueColor"
+                        android:textColor="@color/greenColor"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/sembuhTitle" />
@@ -330,7 +330,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="1,046"
-                        android:textColor="@color/blueColor"
+                        android:textColor="@color/redColor"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/meninggalImg" />
@@ -340,7 +340,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="Meninggal"
-                        android:textColor="@color/blueColor"
+                        android:textColor="@color/redColor"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/meninggalTitle" />
