@@ -52,4 +52,11 @@
     <string name="cure">Sembuh</string>
     <string name="death">Meninggal</string>
     <string name="tentang_covid_19">Tentang Covid-19</string>
+
+    <string name="user_condition_title">Kesehatan Anda</string>
+    <string name="user_condition_subtitle">Isi sesuai dengan kondisi kesehatan anda saat ini.</string>
+    <string name="odp_condition">ODP</string>
+    <string name="positive_condition">Positif</string>
+    <string name="health_condition">Sehat</string>
+    <string name="user_interaction_report">Laporan Interaksi</string>
 </resources>

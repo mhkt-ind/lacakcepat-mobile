@@ -51,6 +51,10 @@
         <item name="android:fontFamily">@font/poppins</item>
     </style>
 
+    <style name="TextContent.Standard.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="TextContent.Small">
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">@font/poppins</item>
@@ -59,6 +63,14 @@
     <!-- Button -->
     <style name="AppTextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="RoundConditionStatus" parent="TextContent.Standard">
+        <item name="android:layout_marginTop">@dimen/small_spacing</item>
+        <item name="android:minWidth">80dp</item>
+        <item name="android:padding">@dimen/tiny_spacing</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <!-- Covid Case-->

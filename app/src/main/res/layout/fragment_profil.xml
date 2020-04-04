@@ -1,16 +1,294 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/grey2Text">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profil"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@android:color/white"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:title="@string/profil" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerUserData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:padding="@dimen/normal_spacing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+
+        <TextView
+            android:id="@+id/txtUsername"
+            style="@style/TextContent.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey1Text"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/containerUserData"
+            app:layout_constraintStart_toStartOf="@id/containerUserData"
+            app:layout_constraintTop_toTopOf="@id/containerUserData"
+            tools:text="Fajar Agung Pramana" />
+
+        <ImageView
+            android:id="@+id/imgPhoneNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/image"
+            app:layout_constraintBottom_toBottomOf="@+id/txtPhoneNumber"
+            app:layout_constraintStart_toStartOf="@id/txtUsername"
+            app:layout_constraintTop_toTopOf="@id/txtPhoneNumber"
+            app:srcCompat="@drawable/ic_phone" />
+
+        <TextView
+            android:id="@+id/txtPhoneNumber"
+            style="@style/TextContent.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="@dimen/small_spacing"
+            app:layout_constraintEnd_toEndOf="@id/txtUsername"
+            app:layout_constraintStart_toEndOf="@id/imgPhoneNumber"
+            app:layout_constraintTop_toBottomOf="@id/txtUsername"
+            tools:text="+6281388987656" />
+
+        <ImageView
+            android:id="@+id/imgAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/image"
+            app:layout_constraintBottom_toBottomOf="@+id/txtAddress"
+            app:layout_constraintStart_toStartOf="@id/txtUsername"
+            app:layout_constraintTop_toTopOf="@id/txtAddress"
+            app:srcCompat="@drawable/ic_location_grey" />
+
+        <TextView
+            android:id="@+id/txtAddress"
+            style="@style/TextContent.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="@dimen/small_spacing"
+            android:layout_marginBottom="@dimen/normal_spacing"
+            app:layout_constraintEnd_toEndOf="@id/txtUsername"
+            app:layout_constraintStart_toEndOf="@id/imgAddress"
+            app:layout_constraintTop_toBottomOf="@id/txtPhoneNumber"
+            tools:text="Kp. Lacak RT.050/RW.056 Des. Cepat Kec. Super Kab. Bekasi 17999" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerUserCondition"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_spacing"
+        android:background="@android:color/white"
+        android:padding="@dimen/normal_spacing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerUserData">
+
+        <TextView
+            android:id="@+id/txtConditionTitle"
+            style="@style/TextContent.Standard.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/user_condition_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtConditionSubtitle"
+            style="@style/TextContent.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/user_condition_subtitle"
+            app:layout_constraintEnd_toEndOf="@id/txtConditionTitle"
+            app:layout_constraintStart_toStartOf="@id/txtConditionTitle"
+            app:layout_constraintTop_toBottomOf="@id/txtConditionTitle" />
+
+        <TextView
+            android:id="@+id/txtHealthyStatus"
+            style="@style/RoundConditionStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_primary"
+            android:text="@string/health_condition"
+            app:layout_constraintEnd_toStartOf="@+id/txtOdpStatus"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtConditionSubtitle" />
+
+        <TextView
+            android:id="@+id/txtOdpStatus"
+            style="@style/RoundConditionStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_grey"
+            android:text="@string/odp_condition"
+            app:layout_constraintBaseline_toBaselineOf="@id/txtHealthyStatus"
+            app:layout_constraintEnd_toStartOf="@+id/txtPositiveStatus"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtHealthyStatus"
+            app:layout_constraintTop_toBottomOf="@id/txtConditionSubtitle" />
+
+        <TextView
+            android:id="@+id/txtPositiveStatus"
+            style="@style/RoundConditionStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_grey"
+            android:text="@string/positive_condition"
+            app:layout_constraintBaseline_toBaselineOf="@id/txtHealthyStatus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtOdpStatus"
+            app:layout_constraintTop_toBottomOf="@id/txtConditionSubtitle" />
+
+        <TextView
+            android:id="@+id/txtInteractionReportTitle"
+            style="@style/TextContent.Standard.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_spacing"
+            android:text="@string/user_interaction_report"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtHealthyStatus" />
+
+        <TextView
+            android:id="@+id/healthyReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_spacing"
+            android:background="@drawable/ellipse_green"
+            app:layout_constraintEnd_toStartOf="@+id/odpReport"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtInteractionReportTitle" />
+
+        <TextView
+            android:id="@+id/txtHealthyReportLabel"
+            style="@style/TextContent.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/health_condition"
+            android:textColor="@color/greenColor"
+            app:layout_constraintBottom_toTopOf="@+id/txtHealthyReportValue"
+            app:layout_constraintEnd_toEndOf="@id/healthyReport"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/healthyReport"
+            app:layout_constraintTop_toTopOf="@+id/healthyReport"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/txtHealthyReportValue"
+            style="@style/TextContent.Standard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/greenColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/healthyReport"
+            app:layout_constraintEnd_toEndOf="@id/healthyReport"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/healthyReport"
+            app:layout_constraintTop_toBottomOf="@+id/txtHealthyReportLabel"
+            tools:text="178" />
+
+        <TextView
+            android:id="@+id/odpReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_spacing"
+            android:background="@drawable/ellipse_yellow"
+            app:layout_constraintEnd_toStartOf="@+id/positiveReport"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/healthyReport"
+            app:layout_constraintTop_toBottomOf="@id/txtInteractionReportTitle" />
+
+        <TextView
+            android:id="@+id/txtOdpReportLabel"
+            style="@style/TextContent.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/odp_condition"
+            android:textColor="@color/yellowColor"
+            app:layout_constraintBottom_toTopOf="@+id/txtOdpReportValue"
+            app:layout_constraintEnd_toEndOf="@id/odpReport"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/odpReport"
+            app:layout_constraintTop_toTopOf="@+id/odpReport"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/txtOdpReportValue"
+            style="@style/TextContent.Standard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/yellowColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/odpReport"
+            app:layout_constraintEnd_toEndOf="@id/odpReport"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/odpReport"
+            app:layout_constraintTop_toBottomOf="@+id/txtOdpReportLabel"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/positiveReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_spacing"
+            android:background="@drawable/ellipse_red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/odpReport"
+            app:layout_constraintTop_toBottomOf="@id/txtInteractionReportTitle" />
+
+        <TextView
+            android:id="@+id/txtPositiveReportLabel"
+            style="@style/TextContent.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/odp_condition"
+            android:textColor="@color/redColor"
+            app:layout_constraintBottom_toTopOf="@+id/txtPositiveReportValue"
+            app:layout_constraintEnd_toEndOf="@id/positiveReport"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/positiveReport"
+            app:layout_constraintTop_toTopOf="@+id/positiveReport"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/txtPositiveReportValue"
+            style="@style/TextContent.Standard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/redColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/positiveReport"
+            app:layout_constraintEnd_toEndOf="@id/positiveReport"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/positiveReport"
+            app:layout_constraintTop_toBottomOf="@+id/txtPositiveReportLabel"
+            tools:text="0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

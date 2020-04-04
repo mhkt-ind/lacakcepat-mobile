@@ -17,6 +17,7 @@
 
     <!--Button Color-->
     <color name="grey1Button">#BDBDBD</color>
+    <color name="grey5Button">#E0E0E0</color>
 
     <!--Covid Case Info-->
     <color name="blueColor">#2D9CDB</color>
