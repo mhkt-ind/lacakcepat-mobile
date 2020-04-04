@@ -7,6 +7,7 @@ import android.animation.ValueAnimator
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.view.View
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -136,6 +137,7 @@ class MainActivity : AppCompatActivity() {
                 isPopUp = false
                 nav_view.menu.forEach { it.isEnabled = true }
                 overridePendingTransition(0, 0)
+                popup_window_background.visibility = View.GONE
             }
         })
         colorAnimation.start()
