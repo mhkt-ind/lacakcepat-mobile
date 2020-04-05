@@ -66,6 +66,7 @@ class RegisterFragment : Fragment() {
                         sharedPref.save("OTP", it.data.otpCode)
                         sharedPref.save("TOKEN", it.data.token)
                         sharedPref.save("USERID", it.data.userId)
+                        sharedPref.save("FULLNAME", namaInput.text.toString())
                         sharedPref.save("PHONENUMBER", phoneInput.text.toString())
 
                         viewModel.fragmentSate.postValue(2)
