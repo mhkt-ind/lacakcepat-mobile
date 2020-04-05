@@ -1,356 +1,560 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/lacakCepatTitle"
-        style="@style/TextContent.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/lacak_cepat"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <HorizontalScrollView
-        android:id="@+id/menuLacakCepat"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/lacakCepatTitle">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/lacakCepatTitle"
+            style="@style/TextContent.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/lacak_cepat"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="300dp"
-                android:layout_height="150dp">
+        <HorizontalScrollView
+            android:id="@+id/menuLacakCepat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintTop_toBottomOf="@id/lacakCepatTitle">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/tentang_covid_19"
-                    android:src="@drawable/ic_tentang_covid_19" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tentangTitle"
-                    style="@style/TextContent.Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Tentang Covid - 19"
-                    android:textColor="@color/whiteText"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="8dp"
+                    android:elevation="4dp">
 
-                <TextView
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Informasi mengenai virus Covid - 19 bisa anda dapatkan disini."
-                    android:textColor="@color/whiteText"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tentangTitle" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleX="1.1"
+                            android:scaleY="1.1"
+                            android:contentDescription="@string/tentang_covid_19"
+                            android:src="@drawable/ic_tentang_covid_19" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="300dp"
-                android:layout_height="150dp">
+                        <TextView
+                            android:id="@+id/tentangTitle"
+                            style="@style/TextContent.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Tentang Covid - 19"
+                            android:textColor="@color/whiteText"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/tentang_covid_19"
-                    android:src="@drawable/ic_pencegahan_covid_19" />
+                        <TextView
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Informasi mengenai virus Covid - 19 bisa anda dapatkan disini."
+                            android:textColor="@color/whiteText"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tentangTitle" />
 
-                <TextView
-                    android:id="@+id/pencegahanTitle"
-                    style="@style/TextContent.Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Pencegahan Covid - 19"
-                    android:textColor="@color/whiteText"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Mencegah lebih baik dari pada mengobati, informasinya disini."
-                    android:textColor="@color/whiteText"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/pencegahanTitle" />
+                </androidx.cardview.widget.CardView>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="8dp"
+                    android:elevation="4dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="300dp"
-                android:layout_height="150dp">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/tentang_covid_19"
-                    android:src="@drawable/ic_ciri_positif_covid_19" />
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleX="1.1"
+                            android:scaleY="1.1"
+                            android:contentDescription="@string/tentang_covid_19"
+                            android:src="@drawable/ic_pencegahan_covid_19" />
 
-                <TextView
-                    android:id="@+id/ciriTitle"
-                    style="@style/TextContent.Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Ciri Positif Covid - 19"
-                    android:textColor="@color/whiteText"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                        <TextView
+                            android:id="@+id/pencegahanTitle"
+                            style="@style/TextContent.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Pencegahan Covid - 19"
+                            android:textColor="@color/whiteText"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Ciri - ciri seseorang positif Covid - 19, informasinya disini."
-                    android:textColor="@color/whiteText"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ciriTitle" />
+                        <TextView
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Mencegah lebih baik dari pada mengobati, informasinya disini."
+                            android:textColor="@color/whiteText"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/pencegahanTitle" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
-    </HorizontalScrollView>
+                </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/kasusCovidTitle"
-        style="@style/TextContent.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:text="Kasus Covid - 19"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuLacakCepat" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="8dp"
+                    android:elevation="4dp">
 
-    <HorizontalScrollView
-        android:id="@+id/menuKasusCovid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintTop_toBottomOf="@id/kasusCovidTitle">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-        <LinearLayout
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleX="1.1"
+                            android:scaleY="1.1"
+                            android:contentDescription="@string/tentang_covid_19"
+                            android:src="@drawable/ic_ciri_positif_covid_19" />
+
+                        <TextView
+                            android:id="@+id/ciriTitle"
+                            style="@style/TextContent.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Ciri Positif Covid - 19"
+                            android:textColor="@color/whiteText"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Ciri - ciri seseorang positif Covid - 19, informasinya disini."
+                            android:textColor="@color/whiteText"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ciriTitle" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/kasusCovidTitle"
+            style="@style/TextContent.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="Kasus Covid - 19"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menuLacakCepat" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="180dp"
-                android:layout_margin="4dp"
-                app:cardCornerRadius="8dp"
-                android:elevation="4dp">
+        <HorizontalScrollView
+            android:id="@+id/menuKasusCovid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintTop_toBottomOf="@id/kasusCovidTitle">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/terkonfirmasiImg"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="180dp"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="8dp"
+                    android:elevation="4dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:contentDescription="@string/tentang_covid_19"
-                        android:src="@drawable/ic_terkonfirmasi"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:layout_gravity="center">
 
-                    <TextView
-                        android:id="@+id/terkonfirmasiTitle"
-                        style="@style/TextContent.Bold"
+                        <ImageView
+                            android:id="@+id/terkonfirmasiImg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/tentang_covid_19"
+                            android:src="@drawable/ic_terkonfirmasi"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/terkonfirmasiTitle"
+                            style="@style/TextContent.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="1,046"
+                            android:textColor="@color/blueColor"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/terkonfirmasiImg" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Terkonfirmasi"
+                            android:textColor="@color/blueColor"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/terkonfirmasiTitle" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="180dp"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="8dp"
+                    android:elevation="4dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="1,046"
-                        android:textColor="@color/blueColor"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/terkonfirmasiImg" />
+                        android:layout_gravity="center">
 
-                    <TextView
+                        <ImageView
+                            android:id="@+id/perawatanImg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/tentang_covid_19"
+                            android:src="@drawable/ic_pdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/perawatanTitle"
+                            style="@style/TextContent.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="1,046"
+                            android:textColor="@color/yellowColor"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/perawatanImg" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Dalam Perawatan"
+                            android:textColor="@color/yellowColor"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/perawatanTitle" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="180dp"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="8dp"
+                    android:elevation="4dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Terkonfirmasi"
-                        android:textColor="@color/blueColor"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/terkonfirmasiTitle" />
+                        android:layout_gravity="center">
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <ImageView
+                            android:id="@+id/sembuhImg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/tentang_covid_19"
+                            android:src="@drawable/ic_cure"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-            </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:id="@+id/sembuhTitle"
+                            style="@style/TextContent.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="1,046"
+                            android:textColor="@color/greenColor"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/sembuhImg" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="180dp"
-                android:layout_margin="4dp"
-                app:cardCornerRadius="8dp"
-                android:elevation="4dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Sembuh"
+                            android:textColor="@color/greenColor"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/sembuhTitle" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <ImageView
-                        android:id="@+id/perawatanImg"
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="180dp"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="8dp"
+                    android:elevation="4dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:contentDescription="@string/tentang_covid_19"
-                        android:src="@drawable/ic_pdp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:layout_gravity="center">
 
-                    <TextView
-                        android:id="@+id/perawatanTitle"
-                        style="@style/TextContent.Bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="1,046"
-                        android:textColor="@color/yellowColor"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/perawatanImg" />
+                        <ImageView
+                            android:id="@+id/meninggalImg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/tentang_covid_19"
+                            android:src="@drawable/ic_death"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Dalam Perawatan"
-                        android:textColor="@color/yellowColor"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/perawatanTitle" />
+                        <TextView
+                            android:id="@+id/meninggalTitle"
+                            style="@style/TextContent.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="1,046"
+                            android:textColor="@color/redColor"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/meninggalImg" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Meninggal"
+                            android:textColor="@color/redColor"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/meninggalTitle" />
 
-            </androidx.cardview.widget.CardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="180dp"
-                android:layout_margin="4dp"
-                app:cardCornerRadius="8dp"
-                android:elevation="4dp">
+                </androidx.cardview.widget.CardView>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+            </LinearLayout>
+        </HorizontalScrollView>
 
-                    <ImageView
-                        android:id="@+id/sembuhImg"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:contentDescription="@string/tentang_covid_19"
-                        android:src="@drawable/ic_cure"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/beritaCovidTitle"
+            style="@style/TextContent.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="Berita Terkini"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menuKasusCovid" />
 
-                    <TextView
-                        android:id="@+id/sembuhTitle"
-                        style="@style/TextContent.Bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="1,046"
-                        android:textColor="@color/greenColor"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/sembuhImg" />
+        <HorizontalScrollView
+            android:id="@+id/beritaKasusCovid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintTop_toBottomOf="@id/beritaCovidTitle">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Sembuh"
-                        android:textColor="@color/greenColor"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/sembuhTitle" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="300dp"
+                    android:layout_height="113dp"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="8dp"
+                    android:elevation="4dp">
 
-            </androidx.cardview.widget.CardView>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="180dp"
-                android:layout_margin="4dp"
-                app:cardCornerRadius="8dp"
-                android:elevation="4dp">
+                        <ImageView
+                            android:id="@+id/berita1Img"
+                            android:layout_width="100dp"
+                            android:layout_height="113dp"
+                            android:contentDescription="@string/tentang_covid_19"
+                            android:src="@drawable/berita1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                        <TextView
+                            android:id="@+id/berita1Title"
+                            style="@style/TextContent.Small"
+                            android:layout_width="190dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Pasien Tambah 153, Total Ada 1.046 Kasus Covid-19 di Indo..."
+                            android:textColor="@color/grey1Text"
+                            app:layout_constraintStart_toEndOf="@+id/berita1Img"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/meninggalImg"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:contentDescription="@string/tentang_covid_19"
-                        android:src="@drawable/ic_death"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <TextView
+                            style="@style/TextContent.Small"
+                            android:layout_width="190dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Berdasarkan data yang diterima hingga Jumat (27/3/2020) pukul 12..."
+                            android:textColor="@color/greyText"
+                            app:layout_constraintStart_toEndOf="@+id/berita1Img"
+                            app:layout_constraintTop_toBottomOf="@+id/berita1Title" />
 
-                    <TextView
-                        android:id="@+id/meninggalTitle"
-                        style="@style/TextContent.Bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="1,046"
-                        android:textColor="@color/redColor"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/meninggalImg" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Meninggal"
-                        android:textColor="@color/redColor"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/meninggalTitle" />
+                </androidx.cardview.widget.CardView>
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="300dp"
+                    android:layout_height="113dp"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="8dp"
+                    android:elevation="4dp">
 
-            </androidx.cardview.widget.CardView>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
 
-        </LinearLayout>
-    </HorizontalScrollView>
+                        <ImageView
+                            android:id="@+id/berita2Img"
+                            android:layout_width="100dp"
+                            android:layout_height="113dp"
+                            android:contentDescription="@string/tentang_covid_19"
+                            android:src="@drawable/berita2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
+                        <TextView
+                            android:id="@+id/berita2Title"
+                            style="@style/TextContent.Small"
+                            android:layout_width="190dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Ternyata Virus Bisa Menempel pada Pakaian, Bagaimana C..."
+                            android:textColor="@color/grey1Text"
+                            app:layout_constraintStart_toEndOf="@+id/berita2Img"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            style="@style/TextContent.Small"
+                            android:layout_width="190dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Para peneliti Institute for Hygiene and Environmental Medicine di Jer..."
+                            android:textColor="@color/greyText"
+                            app:layout_constraintStart_toEndOf="@+id/berita2Img"
+                            app:layout_constraintTop_toBottomOf="@+id/berita2Title" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/petaCovidTitle"
+            style="@style/TextContent.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="Peta Persebaran"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beritaKasusCovid" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPetaIndonesia"
+            android:layout_width="344dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:elevation="4dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/petaCovidTitle">
+
+            <ImageView
+                android:id="@+id/petaIndonesiaImg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/tentang_covid_19"
+                android:scaleX="1.1"
+                android:scaleY="1.1"
+                android:src="@drawable/peta_indonesia"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardPetaIndonesia" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

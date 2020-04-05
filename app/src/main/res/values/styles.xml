@@ -60,6 +60,10 @@
         <item name="android:fontFamily">@font/poppins</item>
     </style>
 
+    <style name="TextContent.Small.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <!-- Button -->
     <style name="AppTextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textAllCaps">false</item>
