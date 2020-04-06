@@ -2,6 +2,7 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -25,9 +26,9 @@
             android:id="@+id/menuLacakCepat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            app:layout_constraintTop_toBottomOf="@id/lacakCepatTitle">
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/lacakCepatTitle"
+            tools:layout_editor_absoluteX="5dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -38,8 +39,8 @@
                     android:layout_width="300dp"
                     android:layout_height="150dp"
                     android:layout_margin="4dp"
-                    app:cardCornerRadius="8dp"
-                    android:elevation="4dp">
+                    android:elevation="4dp"
+                    app:cardCornerRadius="8dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -48,9 +49,9 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:contentDescription="@string/tentang_covid_19"
                             android:scaleX="1.1"
                             android:scaleY="1.1"
-                            android:contentDescription="@string/tentang_covid_19"
                             android:src="@drawable/ic_tentang_covid_19" />
 
                         <TextView
@@ -83,8 +84,8 @@
                     android:layout_width="300dp"
                     android:layout_height="150dp"
                     android:layout_margin="4dp"
-                    app:cardCornerRadius="8dp"
-                    android:elevation="4dp">
+                    android:elevation="4dp"
+                    app:cardCornerRadius="8dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -93,9 +94,9 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:contentDescription="@string/tentang_covid_19"
                             android:scaleX="1.1"
                             android:scaleY="1.1"
-                            android:contentDescription="@string/tentang_covid_19"
                             android:src="@drawable/ic_pencegahan_covid_19" />
 
                         <TextView
@@ -128,8 +129,8 @@
                     android:layout_width="300dp"
                     android:layout_height="150dp"
                     android:layout_margin="4dp"
-                    app:cardCornerRadius="8dp"
-                    android:elevation="4dp">
+                    android:elevation="4dp"
+                    app:cardCornerRadius="8dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -138,9 +139,9 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:contentDescription="@string/tentang_covid_19"
                             android:scaleX="1.1"
                             android:scaleY="1.1"
-                            android:contentDescription="@string/tentang_covid_19"
                             android:src="@drawable/ic_ciri_positif_covid_19" />
 
                         <TextView
@@ -172,6 +173,18 @@
             </LinearLayout>
         </HorizontalScrollView>
 
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="10dp"
+            android:text="Lihat Detail"
+            android:textAllCaps="false"
+            android:textColor="@color/blueColor"
+            android:background="@drawable/ic_detailbutton"
+            app:layout_constraintBottom_toBottomOf="@+id/kasusCovidTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/kasusCovidTitle" />
+
         <TextView
             android:id="@+id/kasusCovidTitle"
             style="@style/TextContent.Title"
@@ -188,9 +201,9 @@
             android:id="@+id/menuKasusCovid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            app:layout_constraintTop_toBottomOf="@id/kasusCovidTitle">
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/kasusCovidTitle"
+            tools:layout_editor_absoluteX="5dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -201,8 +214,8 @@
                     android:layout_width="150dp"
                     android:layout_height="180dp"
                     android:layout_margin="4dp"
-                    app:cardCornerRadius="8dp"
-                    android:elevation="4dp">
+                    android:elevation="4dp"
+                    app:cardCornerRadius="8dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -249,8 +262,8 @@
                     android:layout_width="150dp"
                     android:layout_height="180dp"
                     android:layout_margin="4dp"
-                    app:cardCornerRadius="8dp"
-                    android:elevation="4dp">
+                    android:elevation="4dp"
+                    app:cardCornerRadius="8dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -297,8 +310,8 @@
                     android:layout_width="150dp"
                     android:layout_height="180dp"
                     android:layout_margin="4dp"
-                    app:cardCornerRadius="8dp"
-                    android:elevation="4dp">
+                    android:elevation="4dp"
+                    app:cardCornerRadius="8dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -345,8 +358,8 @@
                     android:layout_width="150dp"
                     android:layout_height="180dp"
                     android:layout_margin="4dp"
-                    app:cardCornerRadius="8dp"
-                    android:elevation="4dp">
+                    android:elevation="4dp"
+                    app:cardCornerRadius="8dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -392,6 +405,18 @@
             </LinearLayout>
         </HorizontalScrollView>
 
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="10dp"
+            android:text="Lihat Detail"
+            android:textAllCaps="false"
+            android:textColor="@color/blueColor"
+            android:background="@drawable/ic_detailbutton"
+            app:layout_constraintBottom_toBottomOf="@+id/beritaCovidTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/beritaCovidTitle" />
+
         <TextView
             android:id="@+id/beritaCovidTitle"
             style="@style/TextContent.Title"
@@ -408,9 +433,9 @@
             android:id="@+id/beritaKasusCovid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            app:layout_constraintTop_toBottomOf="@id/beritaCovidTitle">
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/beritaCovidTitle"
+            tools:layout_editor_absoluteX="5dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -421,12 +446,12 @@
                     android:layout_width="300dp"
                     android:layout_height="113dp"
                     android:layout_margin="4dp"
-                    app:cardCornerRadius="8dp"
-                    android:elevation="4dp">
+                    android:elevation="4dp"
+                    app:cardCornerRadius="8dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                        android:layout_height="match_parent">
 
                         <ImageView
                             android:id="@+id/berita1Img"
@@ -467,12 +492,12 @@
                     android:layout_width="300dp"
                     android:layout_height="113dp"
                     android:layout_margin="4dp"
-                    app:cardCornerRadius="8dp"
-                    android:elevation="4dp">
+                    android:elevation="4dp"
+                    app:cardCornerRadius="8dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                        android:layout_height="match_parent">
 
                         <ImageView
                             android:id="@+id/berita2Img"
@@ -512,6 +537,18 @@
             </LinearLayout>
         </HorizontalScrollView>
 
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="10dp"
+            android:text="Lihat Detail"
+            android:textAllCaps="false"
+            android:textColor="@color/blueColor"
+            android:background="@drawable/ic_detailbutton"
+            app:layout_constraintBottom_toBottomOf="@+id/petaCovidTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/petaCovidTitle" />
+
         <TextView
             android:id="@+id/petaCovidTitle"
             style="@style/TextContent.Title"
@@ -529,7 +566,7 @@
             android:layout_width="344dp"
             android:layout_height="150dp"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
             android:elevation="4dp"
             app:cardCornerRadius="8dp"
             app:layout_constraintStart_toStartOf="parent"
