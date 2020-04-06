@@ -67,7 +67,7 @@ class RegisterFragment : Fragment() {
                         sharedPref.save("TOKEN", it.data.token)
                         sharedPref.save("USERID", it.data.userId)
                         sharedPref.save("FULLNAME", namaInput.text.toString())
-                        sharedPref.save("PHONENUMBER", phoneInput.text.toString())
+                        sharedPref.save("PHONENUMBER", "0$phoneInput.text.toString()")
 
                         viewModel.fragmentSate.postValue(2)
                         viewModel.registerData.postValue(Result.Empty("Cleared"))
