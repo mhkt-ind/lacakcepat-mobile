@@ -43,7 +43,7 @@
             app:layout_constraintEnd_toEndOf="@id/containerUserData"
             app:layout_constraintStart_toStartOf="@id/containerUserData"
             app:layout_constraintTop_toTopOf="@id/containerUserData"
-            tools:text="Fajar Agung Pramana" />
+            android:text="Fajar Agung Pramana" />
 
         <ImageView
             android:id="@+id/imgPhoneNumber"
@@ -65,7 +65,7 @@
             app:layout_constraintEnd_toEndOf="@id/txtUsername"
             app:layout_constraintStart_toEndOf="@id/imgPhoneNumber"
             app:layout_constraintTop_toBottomOf="@id/txtUsername"
-            tools:text="+6281388987656" />
+            android:text="+6281388987656" />
 
         <ImageView
             android:id="@+id/imgAddress"
@@ -88,7 +88,7 @@
             app:layout_constraintEnd_toEndOf="@id/txtUsername"
             app:layout_constraintStart_toEndOf="@id/imgAddress"
             app:layout_constraintTop_toBottomOf="@id/txtPhoneNumber"
-            tools:text="Kp. Lacak RT.050/RW.056 Des. Cepat Kec. Super Kab. Bekasi 17999" />
+            android:text="Kp. Lacak RT.050/RW.056 Des. Cepat Kec. Super Kab. Bekasi 17999" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -210,7 +210,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@id/healthyReport"
             app:layout_constraintTop_toBottomOf="@+id/txtHealthyReportLabel"
-            tools:text="178" />
+            android:text="178" />
 
         <TextView
             android:id="@+id/odpReport"
@@ -249,7 +249,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@id/odpReport"
             app:layout_constraintTop_toBottomOf="@+id/txtOdpReportLabel"
-            tools:text="0" />
+            android:text="0" />
 
         <TextView
             android:id="@+id/positiveReport"
@@ -288,7 +288,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@id/positiveReport"
             app:layout_constraintTop_toBottomOf="@+id/txtPositiveReportLabel"
-            tools:text="0" />
+            android:text="0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
