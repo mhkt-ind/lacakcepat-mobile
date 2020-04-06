@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp" >
+
+        <TextView
+            android:id="@+id/tanggalInteraksi"
+            style="@style/TextContent.Standard.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="4dp"
+            android:text="Jum’at, 27 Maret 2020"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/kontakLangsung"
+            style="@style/TextContent.Standard"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Kontak langsung:"
+            android:textColor="@color/grey1Button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tanggalInteraksi" />
+
+        <TextView
+            android:id="@+id/positiveCovid"
+            style="@style/TextContent.Standard"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Positif Covid - 19:"
+            android:textColor="@color/grey1Button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kontakLangsung" />
+
+        <TextView
+            android:id="@+id/kontakLangsungValue"
+            style="@style/TextContent.Standard"
+            android:layout_width="140dp"
+            android:textColor="@color/greenColor"
+            android:layout_height="wrap_content"
+            android:text="50 Orang"
+            app:layout_constraintStart_toEndOf="@+id/kontakLangsung"
+            app:layout_constraintTop_toBottomOf="@+id/tanggalInteraksi" />
+
+        <TextView
+            android:id="@+id/positiveCovidValue"
+            style="@style/TextContent.Standard"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/redColor"
+            android:text="0 Orang"
+            app:layout_constraintStart_toEndOf="@+id/positiveCovid"
+            app:layout_constraintTop_toBottomOf="@+id/kontakLangsung" />
+
+        <Button
+            android:layout_width="15dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/ic_next"
+            android:backgroundTint="@color/grey1Button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
