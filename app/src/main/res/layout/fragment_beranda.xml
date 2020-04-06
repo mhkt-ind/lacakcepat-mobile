@@ -496,14 +496,35 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            style="@style/TextContent.Small"
+                            android:id="@+id/isiBerita1"
+                            style="@style/TextContent.ExtraSmall"
                             android:layout_width="190dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="42dp"
                             android:layout_marginStart="5dp"
                             android:text="Berdasarkan data yang diterima hingga Jumat (27/3/2020) pukul 12..."
                             android:textColor="@color/greyText"
                             app:layout_constraintStart_toEndOf="@+id/berita1Img"
                             app:layout_constraintTop_toBottomOf="@+id/berita1Title" />
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            style="@style/TextContent.ExtraSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:text="5 Jam yang lalu."
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/ic_schedule"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView10"
+                            app:layout_constraintEnd_toStartOf="@+id/textView10"
+                            app:layout_constraintTop_toTopOf="@+id/textView10" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -542,14 +563,35 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            style="@style/TextContent.Small"
+                            android:id="@+id/isiBerita2"
+                            style="@style/TextContent.ExtraSmall"
                             android:layout_width="190dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="42dp"
                             android:layout_marginStart="5dp"
                             android:text="Para peneliti Institute for Hygiene and Environmental Medicine di Jer..."
                             android:textColor="@color/greyText"
                             app:layout_constraintStart_toEndOf="@+id/berita2Img"
                             app:layout_constraintTop_toBottomOf="@+id/berita2Title" />
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            style="@style/TextContent.ExtraSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:text="5 Jam yang lalu."
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/ic_schedule"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView11"
+                            app:layout_constraintEnd_toStartOf="@+id/textView11"
+                            app:layout_constraintTop_toTopOf="@+id/textView11" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
