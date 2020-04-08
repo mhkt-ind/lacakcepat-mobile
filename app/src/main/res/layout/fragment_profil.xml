@@ -1,466 +1,568 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/grey2Text">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:background="@android:color/white"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:title="@string/profil" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+    android:layout_height="wrap_content"
+    android:background="@color/grey2Text" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/containerUserData"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:padding="@dimen/normal_spacing"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/txtUsername"
-            style="@style/TextContent.Title"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/grey1Text"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@id/containerUserData"
-            app:layout_constraintStart_toStartOf="@id/containerUserData"
-            app:layout_constraintTop_toTopOf="@id/containerUserData"
-            android:text="Fajar Agung Pramana" />
-
-        <ImageView
-            android:id="@+id/imgPhoneNumber"
-            android:layout_width="15dp"
-            android:layout_height="18dp"
-            android:contentDescription="@string/image"
-            app:layout_constraintBottom_toBottomOf="@+id/txtPhoneNumber"
-            app:layout_constraintStart_toStartOf="@id/txtUsername"
-            app:layout_constraintTop_toTopOf="@id/txtPhoneNumber"
-            app:srcCompat="@drawable/ic_phone" />
-
-        <TextView
-            android:id="@+id/txtPhoneNumber"
-            style="@style/TextContent.Small"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="@dimen/small_spacing"
-            app:layout_constraintEnd_toEndOf="@id/txtUsername"
-            app:layout_constraintStart_toEndOf="@id/imgPhoneNumber"
-            app:layout_constraintTop_toBottomOf="@id/txtUsername"
-            android:text="+6281388987656" />
-
-        <ImageView
-            android:id="@+id/imgAddress"
-            android:layout_width="15dp"
-            android:layout_height="18dp"
-            android:contentDescription="@string/image"
-            app:layout_constraintBottom_toBottomOf="@+id/txtAddress"
-            app:layout_constraintStart_toStartOf="@id/txtUsername"
-            app:layout_constraintTop_toTopOf="@id/txtAddress"
-            app:srcCompat="@drawable/ic_location_grey" />
-
-        <TextView
-            android:id="@+id/txtAddress"
-            style="@style/TextContent.Small"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="@dimen/small_spacing"
-            android:layout_marginBottom="@dimen/normal_spacing"
-            app:layout_constraintEnd_toEndOf="@id/txtUsername"
-            app:layout_constraintStart_toEndOf="@id/imgAddress"
-            app:layout_constraintTop_toBottomOf="@id/txtPhoneNumber"
-            android:text="Kp. Lacak RT.050/RW.056 Des. Cepat Kec. Super Kab. Bekasi 17999" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/containerUserCondition"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/normal_spacing"
-        android:background="@android:color/white"
-        android:padding="@dimen/normal_spacing"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/containerUserData">
-
-        <TextView
-            android:id="@+id/txtConditionTitle"
-            style="@style/TextContent.Standard.Bold"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/user_condition_title"
+            android:layout_height="56dp"
+            android:background="@android:color/white"
+            android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/txtConditionSubtitle"
-            style="@style/TextContent.Small"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/user_condition_subtitle"
-            app:layout_constraintEnd_toEndOf="@id/txtConditionTitle"
-            app:layout_constraintStart_toStartOf="@id/txtConditionTitle"
-            app:layout_constraintTop_toBottomOf="@id/txtConditionTitle" />
-
-        <Button
-            android:id="@+id/txtHealthyStatus"
-            style="@style/RoundConditionStatus"
-            android:layout_width="80dp"
-            android:layout_height="35dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:background="@drawable/pill_button"
-            android:text="@string/health_condition"
-            app:layout_constraintEnd_toStartOf="@+id/txtOdpStatus"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtConditionSubtitle" />
-
-        <Button
-            android:id="@+id/txtOdpStatus"
-            style="@style/RoundConditionStatus"
-            android:layout_width="80dp"
-            android:layout_height="35dp"
-            android:backgroundTint="@color/grey5Button"
-            android:background="@drawable/pill_button_disable"
-            android:text="@string/odp_condition"
-            app:layout_constraintBaseline_toBaselineOf="@id/txtHealthyStatus"
-            app:layout_constraintEnd_toStartOf="@+id/txtPositiveStatus"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/txtHealthyStatus"
-            app:layout_constraintTop_toBottomOf="@id/txtConditionSubtitle" />
-
-        <Button
-            android:id="@+id/txtPositiveStatus"
-            style="@style/RoundConditionStatus"
-            android:layout_width="80dp"
-            android:layout_height="35dp"
-            android:backgroundTint="@color/grey5Button"
-            android:background="@drawable/pill_button_disable"
-            android:text="@string/positive_condition"
-            app:layout_constraintBaseline_toBaselineOf="@id/txtHealthyStatus"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/txtOdpStatus"
-            app:layout_constraintTop_toBottomOf="@id/txtConditionSubtitle" />
-
-        <TextView
-            android:id="@+id/txtInteractionReportTitle"
-            style="@style/TextContent.Standard.Bold"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/normal_spacing"
-            android:text="@string/user_interaction_report"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtHealthyStatus" />
-
-        <TextView
-            android:id="@+id/healthyReport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_spacing"
-            android:background="@drawable/ellipse_green"
-            app:layout_constraintEnd_toStartOf="@+id/odpReport"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtInteractionReportTitle" />
-
-        <TextView
-            android:id="@+id/txtHealthyReportLabel"
-            style="@style/TextContent.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/health_condition"
-            android:textColor="@color/greenColor"
-            app:layout_constraintBottom_toTopOf="@+id/txtHealthyReportValue"
-            app:layout_constraintEnd_toEndOf="@id/healthyReport"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@id/healthyReport"
-            app:layout_constraintTop_toTopOf="@+id/healthyReport"
-            app:layout_constraintVertical_chainStyle="packed" />
-
-        <TextView
-            android:id="@+id/txtHealthyReportValue"
-            style="@style/TextContent.Standard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/greenColor"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/healthyReport"
-            app:layout_constraintEnd_toEndOf="@id/healthyReport"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@id/healthyReport"
-            app:layout_constraintTop_toBottomOf="@+id/txtHealthyReportLabel"
-            android:text="178" />
-
-        <TextView
-            android:id="@+id/odpReport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_spacing"
-            android:background="@drawable/ellipse_yellow"
-            app:layout_constraintEnd_toStartOf="@+id/positiveReport"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/healthyReport"
-            app:layout_constraintTop_toBottomOf="@id/txtInteractionReportTitle" />
-
-        <TextView
-            android:id="@+id/txtOdpReportLabel"
-            style="@style/TextContent.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/odp_condition"
-            android:textColor="@color/yellowColor"
-            app:layout_constraintBottom_toTopOf="@+id/txtOdpReportValue"
-            app:layout_constraintEnd_toEndOf="@id/odpReport"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@id/odpReport"
-            app:layout_constraintTop_toTopOf="@+id/odpReport"
-            app:layout_constraintVertical_chainStyle="packed" />
-
-        <TextView
-            android:id="@+id/txtOdpReportValue"
-            style="@style/TextContent.Standard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/yellowColor"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/odpReport"
-            app:layout_constraintEnd_toEndOf="@id/odpReport"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@id/odpReport"
-            app:layout_constraintTop_toBottomOf="@+id/txtOdpReportLabel"
-            android:text="0" />
-
-        <TextView
-            android:id="@+id/positiveReport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_spacing"
-            android:background="@drawable/ellipse_red"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/odpReport"
-            app:layout_constraintTop_toBottomOf="@id/txtInteractionReportTitle" />
-
-        <TextView
-            android:id="@+id/txtPositiveReportLabel"
-            style="@style/TextContent.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/odp_condition"
-            android:textColor="@color/redColor"
-            app:layout_constraintBottom_toTopOf="@+id/txtPositiveReportValue"
-            app:layout_constraintEnd_toEndOf="@id/positiveReport"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@id/positiveReport"
-            app:layout_constraintTop_toTopOf="@+id/positiveReport"
-            app:layout_constraintVertical_chainStyle="packed" />
-
-        <TextView
-            android:id="@+id/txtPositiveReportValue"
-            style="@style/TextContent.Standard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/redColor"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/positiveReport"
-            app:layout_constraintEnd_toEndOf="@id/positiveReport"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@id/positiveReport"
-            app:layout_constraintTop_toBottomOf="@+id/txtPositiveReportLabel"
-            android:text="0" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/containerSettings"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:layout_marginTop="@dimen/normal_spacing"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/containerUserCondition">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:title="@string/profil" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerUserData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="@dimen/normal_spacing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+
+            <TextView
+                android:id="@+id/txtUsername"
+                style="@style/TextContent.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/grey1Text"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/containerUserData"
+                app:layout_constraintStart_toStartOf="@id/containerUserData"
+                app:layout_constraintTop_toTopOf="@id/containerUserData"
+                android:text="Fajar Agung Pramana" />
+
+            <ImageView
+                android:id="@+id/imgPhoneNumber"
+                android:layout_width="15dp"
+                android:layout_height="18dp"
+                android:contentDescription="@string/image"
+                app:layout_constraintBottom_toBottomOf="@+id/txtPhoneNumber"
+                app:layout_constraintStart_toStartOf="@id/txtUsername"
+                app:layout_constraintTop_toTopOf="@id/txtPhoneNumber"
+                app:srcCompat="@drawable/ic_phone" />
+
+            <TextView
+                android:id="@+id/txtPhoneNumber"
+                style="@style/TextContent.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="@dimen/small_spacing"
+                app:layout_constraintEnd_toEndOf="@id/txtUsername"
+                app:layout_constraintStart_toEndOf="@id/imgPhoneNumber"
+                app:layout_constraintTop_toBottomOf="@id/txtUsername"
+                android:text="+6281388987656" />
+
+            <ImageView
+                android:id="@+id/imgAddress"
+                android:layout_width="15dp"
+                android:layout_height="18dp"
+                android:contentDescription="@string/image"
+                app:layout_constraintBottom_toBottomOf="@+id/txtAddress"
+                app:layout_constraintStart_toStartOf="@id/txtUsername"
+                app:layout_constraintTop_toTopOf="@id/txtAddress"
+                app:srcCompat="@drawable/ic_location_grey" />
+
+            <TextView
+                android:id="@+id/txtAddress"
+                style="@style/TextContent.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_marginBottom="@dimen/normal_spacing"
+                app:layout_constraintEnd_toEndOf="@id/txtUsername"
+                app:layout_constraintStart_toEndOf="@id/imgAddress"
+                app:layout_constraintTop_toBottomOf="@id/txtPhoneNumber"
+                android:text="Kp. Lacak RT.050/RW.056 Des. Cepat Kec. Super Kab. Bekasi 17999" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerUserCondition"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_spacing"
+            android:background="@android:color/white"
+            android:padding="@dimen/normal_spacing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/containerUserData">
+
+            <TextView
+                android:id="@+id/txtConditionTitle"
+                style="@style/TextContent.Standard.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/user_condition_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtConditionSubtitle"
+                style="@style/TextContent.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/user_condition_subtitle"
+                app:layout_constraintEnd_toEndOf="@id/txtConditionTitle"
+                app:layout_constraintStart_toStartOf="@id/txtConditionTitle"
+                app:layout_constraintTop_toBottomOf="@id/txtConditionTitle" />
+
+            <Button
+                android:id="@+id/txtHealthyStatus"
+                style="@style/RoundConditionStatus"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:background="@drawable/pill_button"
+                android:text="@string/health_condition"
+                app:layout_constraintEnd_toStartOf="@+id/txtOdpStatus"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtConditionSubtitle" />
+
+            <Button
+                android:id="@+id/txtOdpStatus"
+                style="@style/RoundConditionStatus"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:backgroundTint="@color/grey5Button"
+                android:background="@drawable/pill_button_disable"
+                android:text="@string/odp_condition"
+                app:layout_constraintBaseline_toBaselineOf="@id/txtHealthyStatus"
+                app:layout_constraintEnd_toStartOf="@+id/txtPositiveStatus"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/txtHealthyStatus"
+                app:layout_constraintTop_toBottomOf="@id/txtConditionSubtitle" />
+
+            <Button
+                android:id="@+id/txtPositiveStatus"
+                style="@style/RoundConditionStatus"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:backgroundTint="@color/grey5Button"
+                android:background="@drawable/pill_button_disable"
+                android:text="@string/positive_condition"
+                app:layout_constraintBaseline_toBaselineOf="@id/txtHealthyStatus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/txtOdpStatus"
+                app:layout_constraintTop_toBottomOf="@id/txtConditionSubtitle" />
+
+            <TextView
+                android:id="@+id/txtInteractionReportTitle"
+                style="@style/TextContent.Standard.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_spacing"
+                android:text="@string/user_interaction_report"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtHealthyStatus" />
+
+            <TextView
+                android:id="@+id/healthyReport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:background="@drawable/ellipse_green"
+                app:layout_constraintEnd_toStartOf="@+id/odpReport"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtInteractionReportTitle" />
+
+            <TextView
+                android:id="@+id/txtHealthyReportLabel"
+                style="@style/TextContent.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/health_condition"
+                android:textColor="@color/greenColor"
+                app:layout_constraintBottom_toTopOf="@+id/txtHealthyReportValue"
+                app:layout_constraintEnd_toEndOf="@id/healthyReport"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@id/healthyReport"
+                app:layout_constraintTop_toTopOf="@+id/healthyReport"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtHealthyReportValue"
+                style="@style/TextContent.Standard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/greenColor"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/healthyReport"
+                app:layout_constraintEnd_toEndOf="@id/healthyReport"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@id/healthyReport"
+                app:layout_constraintTop_toBottomOf="@+id/txtHealthyReportLabel"
+                android:text="178" />
+
+            <TextView
+                android:id="@+id/odpReport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:background="@drawable/ellipse_yellow"
+                app:layout_constraintEnd_toStartOf="@+id/positiveReport"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/healthyReport"
+                app:layout_constraintTop_toBottomOf="@id/txtInteractionReportTitle" />
+
+            <TextView
+                android:id="@+id/txtOdpReportLabel"
+                style="@style/TextContent.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/odp_condition"
+                android:textColor="@color/yellowColor"
+                app:layout_constraintBottom_toTopOf="@+id/txtOdpReportValue"
+                app:layout_constraintEnd_toEndOf="@id/odpReport"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@id/odpReport"
+                app:layout_constraintTop_toTopOf="@+id/odpReport"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtOdpReportValue"
+                style="@style/TextContent.Standard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/yellowColor"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/odpReport"
+                app:layout_constraintEnd_toEndOf="@id/odpReport"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@id/odpReport"
+                app:layout_constraintTop_toBottomOf="@+id/txtOdpReportLabel"
+                android:text="0" />
+
+            <TextView
+                android:id="@+id/positiveReport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:background="@drawable/ellipse_red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/odpReport"
+                app:layout_constraintTop_toBottomOf="@id/txtInteractionReportTitle" />
+
+            <TextView
+                android:id="@+id/txtPositiveReportLabel"
+                style="@style/TextContent.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/odp_condition"
+                android:textColor="@color/redColor"
+                app:layout_constraintBottom_toTopOf="@+id/txtPositiveReportValue"
+                app:layout_constraintEnd_toEndOf="@id/positiveReport"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@id/positiveReport"
+                app:layout_constraintTop_toTopOf="@+id/positiveReport"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtPositiveReportValue"
+                style="@style/TextContent.Standard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/redColor"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/positiveReport"
+                app:layout_constraintEnd_toEndOf="@id/positiveReport"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@id/positiveReport"
+                app:layout_constraintTop_toBottomOf="@+id/txtPositiveReportLabel"
+                android:text="0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerSettings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:layout_marginTop="@dimen/normal_spacing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/containerUserCondition">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_margin="@dimen/normal_spacing"
-                        android:src="@drawable/ic_pengaturan"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textView9"
-                        style="@style/TextContent.Standard.Bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="Pengaturan"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-                        app:layout_constraintStart_toEndOf="@+id/imageView3"
-                        app:layout_constraintTop_toTopOf="@+id/imageView3" />
-
-                    <View
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginStart="44dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="44dp"
-                        android:background="@color/grey5Button"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView3"
-                        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+                        android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/imageNext1"
-                        android:layout_width="14dp"
-                        android:layout_height="14dp"
-                        android:layout_margin="@dimen/normal_spacing"
-                        android:src="@drawable/ic_next"
-                        android:tint="@color/grey1Button"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_margin="@dimen/normal_spacing"
+                            android:src="@drawable/ic_pengaturan"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/textView9"
+                            style="@style/TextContent.Standard.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="Pengaturan"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                            app:layout_constraintStart_toEndOf="@+id/imageView3"
+                            app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
-            </androidx.cardview.widget.CardView>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="44dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="44dp"
+                            android:background="@color/grey5Button"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imageView3"
+                            app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/imageNext1"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_margin="@dimen/normal_spacing"
+                            android:src="@drawable/ic_next"
+                            android:tint="@color/grey1Button"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_margin="@dimen/normal_spacing"
-                        android:src="@drawable/ic_tentang_app"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textView10"
-                        style="@style/TextContent.Standard.Bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="Tentang Aplikasi"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-                        app:layout_constraintStart_toEndOf="@+id/imageView4"
-                        app:layout_constraintTop_toTopOf="@+id/imageView4" />
-
-                    <View
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginStart="44dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="44dp"
-                        android:background="@color/grey5Button"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView4"
-                        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+                        android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/imageNext2"
-                        android:layout_width="14dp"
-                        android:layout_height="14dp"
-                        android:layout_margin="@dimen/normal_spacing"
-                        android:src="@drawable/ic_next"
-                        android:tint="@color/grey1Button"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_margin="@dimen/normal_spacing"
+                            android:src="@drawable/ic_tentang_app"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/textView10"
+                            style="@style/TextContent.Standard.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="Tentang Aplikasi"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                            app:layout_constraintStart_toEndOf="@+id/imageView4"
+                            app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
-            </androidx.cardview.widget.CardView>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="44dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="44dp"
+                            android:background="@color/grey5Button"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imageView4"
+                            app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-            <androidx.cardview.widget.CardView
+                        <ImageView
+                            android:id="@+id/imageNext2"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_margin="@dimen/normal_spacing"
+                            android:src="@drawable/ic_next"
+                            android:tint="@color/grey1Button"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_margin="@dimen/normal_spacing"
+                            android:src="@drawable/ic_tentang_kami"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            style="@style/TextContent.Standard.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="Tentang Kami"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                            app:layout_constraintStart_toEndOf="@+id/imageView5"
+                            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+                        <ImageView
+                            android:id="@+id/imageNext3"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_margin="@dimen/normal_spacing"
+                            android:src="@drawable/ic_next"
+                            android:tint="@color/grey1Button"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerExit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:layout_marginTop="@dimen/normal_spacing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/containerSettings">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_margin="@dimen/normal_spacing"
-                        android:src="@drawable/ic_tentang_kami"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/textView11"
-                        style="@style/TextContent.Standard.Bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="Tentang Kami"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-                        app:layout_constraintStart_toEndOf="@+id/imageView5"
-                        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+                        <ImageView
+                            android:id="@+id/imageStar"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_margin="@dimen/normal_spacing"
+                            android:src="@drawable/ic_bintang"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/imageNext3"
-                        android:layout_width="14dp"
-                        android:layout_height="14dp"
-                        android:layout_margin="@dimen/normal_spacing"
-                        android:src="@drawable/ic_next"
-                        android:tint="@color/grey1Button"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <TextView
+                            android:id="@+id/textBeriRating"
+                            style="@style/TextContent.Standard.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="Beri Kami Nilai"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageStar"
+                            app:layout_constraintStart_toEndOf="@+id/imageStar"
+                            app:layout_constraintTop_toTopOf="@+id/imageStar" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="44dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="44dp"
+                            android:background="@color/grey5Button"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imageStar"
+                            app:layout_constraintTop_toBottomOf="@+id/textBeriRating" />
 
-            </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/normal_spacing"
+                            android:text="v1.0.0"
+                            app:layout_constraintBottom_toBottomOf="@+id/textBeriRating"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/textBeriRating" />
 
-        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textExit"
+                            style="@style/TextContent.Standard.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Keluar"
+                            android:textColor="@color/redColor"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
