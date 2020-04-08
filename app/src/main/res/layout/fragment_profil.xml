@@ -123,12 +123,13 @@
             app:layout_constraintStart_toStartOf="@id/txtConditionTitle"
             app:layout_constraintTop_toBottomOf="@id/txtConditionTitle" />
 
-        <TextView
+        <Button
             android:id="@+id/txtHealthyStatus"
             style="@style/RoundConditionStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_primary"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:background="@drawable/pill_button"
             android:text="@string/health_condition"
             app:layout_constraintEnd_toStartOf="@+id/txtOdpStatus"
             app:layout_constraintHorizontal_bias="0.5"
@@ -136,12 +137,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtConditionSubtitle" />
 
-        <TextView
+        <Button
             android:id="@+id/txtOdpStatus"
             style="@style/RoundConditionStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_grey"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:backgroundTint="@color/grey5Button"
+            android:background="@drawable/pill_button_disable"
             android:text="@string/odp_condition"
             app:layout_constraintBaseline_toBaselineOf="@id/txtHealthyStatus"
             app:layout_constraintEnd_toStartOf="@+id/txtPositiveStatus"
@@ -149,12 +151,13 @@
             app:layout_constraintStart_toEndOf="@+id/txtHealthyStatus"
             app:layout_constraintTop_toBottomOf="@id/txtConditionSubtitle" />
 
-        <TextView
+        <Button
             android:id="@+id/txtPositiveStatus"
             style="@style/RoundConditionStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_grey"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:backgroundTint="@color/grey5Button"
+            android:background="@drawable/pill_button_disable"
             android:text="@string/positive_condition"
             app:layout_constraintBaseline_toBaselineOf="@id/txtHealthyStatus"
             app:layout_constraintEnd_toEndOf="parent"
