@@ -42,8 +42,15 @@
         <activity
             android:name=".ui.activity.MainActivity"
             android:theme="@style/NoActionBarAndAnim" />
-        <activity android:name=".ui.activity.CovidCaseActivity"
+        <activity
+            android:name=".ui.activity.CovidCaseActivity"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.NewsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
