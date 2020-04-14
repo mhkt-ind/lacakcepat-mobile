@@ -3,41 +3,39 @@ package id.lacakcepat.covidnineteen.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import id.lacakcepat.covidnineteen.data.source.remote.model.response.kawalcorona.CountryDataCaseItem
-import id.lacakcepat.covidnineteen.data.source.remote.model.response.kawalcorona.ProvinceDataCase
-import id.lacakcepat.covidnineteen.data.source.repository.KawalCoronaRepository
+import id.lacakcepat.covidnineteen.data.source.remote.model.response.newsapi.NewsResponse.Article
+import id.lacakcepat.covidnineteen.data.source.repository.NewsAPIRepository
 import id.lacakcepat.covidnineteen.data.source.repository.Result
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class NewsViewModel @Inject constructor(private val repository: KawalCoronaRepository) :
+class NewsViewModel @Inject constructor(private val repository: NewsAPIRepository) :
     ViewModel() {
 
-//    var countryCase: MutableLiveData<Result<List<CountryDataCaseItem?>>> = MutableLiveData()
-//    var provinceCase: MutableLiveData<Result<List<ProvinceDataCase?>>> = MutableLiveData()
+    var recentNews: MutableLiveData<Result<List<Article>>> = MutableLiveData()
+    var trendNews: MutableLiveData<Result<List<Article>>> = MutableLiveData()
+    var otherNews: MutableLiveData<Result<List<Article>>> = MutableLiveData()
 
-//    private val country = "indonesia"
-//    private val province = "provinsi"
-//
-//    fun getCountry() {
-//        viewModelScope.launch {
-//            val countryResource = async { repository.getCountry(country) }
-//            countryCase.postValue(countryResource.await())
-//        }
-//    }
-//
-//    fun getProvince() {
-//        viewModelScope.launch {
-//            val proviceResource = async { repository.getProvince(country, province) }
-//            provinceCase.postValue(proviceResource.await())
-//        }
-//    }
+    fun getRecentNews() {
+        viewModelScope.launch {
+            val newsResource = async { repository.getLatestNews() }
+            recentNews.postValue(newsResource.await())
+        }
+    }
 
-//    fun getFilterProvince(query:String?):List<ProvinceDataCase?>?{
-//        return provinceCase.value?.filter {
-//            it?.provinceDataItem?.provinsi!!.toLowerCase(Locale.getDefault()).contains(query!!)
-//        }
-//    }
+    fun getHeadlineNews() {
+        viewModelScope.launch {
+            val newsResource = async { repository.getHeadlineNews() }
+            trendNews.postValue(newsResource.await())
+        }
+    }
+
+    fun getOtherNews() {
+        viewModelScope.launch {
+            val newsResource = async { repository.getOtherNews(2) }
+            otherNews.postValue(newsResource.await())
+        }
+    }
 
 }

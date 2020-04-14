@@ -12,7 +12,7 @@ class NewsAPIRepository @Inject constructor(@Named("NewsAPI") private val servic
     suspend fun getHeadlineNews(): Result<List<Article>> {
         return try {
             Result.Success(
-                service.getHeadlineNews()
+                service.getHeadlineNews().articles
             )
         } catch (e: Exception) {
             Result.Error(e)
@@ -22,7 +22,7 @@ class NewsAPIRepository @Inject constructor(@Named("NewsAPI") private val servic
     suspend fun getLatestNews(): Result<List<Article>> {
         return try {
             Result.Success(
-                service.getLatestNews()
+                service.getLatestNews().articles
             )
         } catch (e: Exception) {
             Result.Error(e)
@@ -32,7 +32,7 @@ class NewsAPIRepository @Inject constructor(@Named("NewsAPI") private val servic
     suspend fun getOtherNews(page:Int): Result<List<Article>> {
         return try {
             Result.Success(
-                service.getOtherNews(page)
+                service.getOtherNews(page).articles
             )
         } catch (e: Exception) {
             Result.Error(e)

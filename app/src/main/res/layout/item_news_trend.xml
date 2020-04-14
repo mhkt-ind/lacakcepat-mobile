@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    android:layout_margin="8dp"
+    android:layout_gravity="center">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="300dp"
+        android:layout_height="110dp">
+
+        <ImageView
+            android:id="@+id/iv_news"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/berita1" />
+
+        <TextView
+            android:id="@+id/tv_newsTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="2"
+            android:minLines="1"
+            android:textAppearance="@style/TextContent.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_news"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Pasien Tambah 153, Total Ada 1.046 Kasus Covid-19 di Indo..." />
+
+        <TextView
+            android:id="@+id/tv_newsDesc"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:alpha="0.6"
+            android:maxLines="2"
+            android:minLines="1"
+            android:textAppearance="@style/TextContent.ExtraSmall"
+            app:layout_constraintBottom_toTopOf="@+id/tv_newsTime"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_newsTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tv_newsTitle"
+            tools:text="Berdasarkan data yang diterima hingga Jumat (27/3/2020) pukul 12..." />
+
+        <TextView
+            android:id="@+id/tv_newsTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:alpha="0.8"
+            android:textAppearance="@style/TextContent.ExtraSmall"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="8 Jam yang lalu." />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_newsTime"
+            app:layout_constraintEnd_toStartOf="@+id/tv_newsTime"
+            app:layout_constraintTop_toTopOf="@+id/tv_newsTime"
+            app:srcCompat="@drawable/ic_clock" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
