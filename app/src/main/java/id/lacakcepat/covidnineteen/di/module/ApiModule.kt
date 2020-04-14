@@ -7,6 +7,7 @@ import dagger.Provides
 import id.lacakcepat.covidnineteen.BuildConfig
 import id.lacakcepat.covidnineteen.data.source.remote.KawalCoronaService
 import id.lacakcepat.covidnineteen.data.source.remote.LacakCepatService
+import id.lacakcepat.covidnineteen.data.source.remote.NewsAPIService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -45,6 +46,17 @@ class ApiModule {
 
     @Provides
     @Singleton
+    @Named("NewsAPI")
+    fun provideNewsAPIInterceptor(): OkHttpClient {
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+            .setLevel(HttpLoggingInterceptor.Level.BODY)
+        return OkHttpClient.Builder()
+            .addInterceptor(httpLoggingInterceptor)
+            .build()
+    }
+
+    @Provides
+    @Singleton
     fun provideGson(): Gson = GsonBuilder().create()
 
     @Provides
@@ -71,6 +83,17 @@ class ApiModule {
 
     @Provides
     @Singleton
+    @Named("NewsAPI")
+    fun provideNewsAPI(@Named("NewsAPI")client: OkHttpClient, gson: Gson): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BuildConfig.NEWS_API_URL)
+            .client(client)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
+    }
+
+    @Provides
+    @Singleton
     fun provideLacakCepatService(@Named("LacakCepat")retrofit: Retrofit): LacakCepatService =
         retrofit.create(LacakCepatService::class.java)
 
@@ -78,4 +101,9 @@ class ApiModule {
     @Singleton
     fun provideKawalCoronaService(@Named("KawalCorona")retrofit: Retrofit): KawalCoronaService =
         retrofit.create(KawalCoronaService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideNewsAPIService(@Named("NewsAPI")retrofit: Retrofit): NewsAPIService =
+        retrofit.create(NewsAPIService::class.java)
 }

@@ -25,4 +25,7 @@
     <color name="yellowColor">#F2C94C</color>
     <color name="greenColor">#27AE60</color>
 
+    <!--News -->
+    <color name="grayNews">#828282</color>
+
 </resources>

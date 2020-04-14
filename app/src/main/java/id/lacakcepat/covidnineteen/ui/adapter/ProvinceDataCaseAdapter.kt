@@ -9,7 +9,8 @@ import id.lacakcepat.covidnineteen.R
 import id.lacakcepat.covidnineteen.data.source.remote.model.response.kawalcorona.ProvinceDataCase
 import kotlinx.android.synthetic.main.item_case_province.view.*
 
-class ProvinceDataCaseAdapter(private var list: List<ProvinceDataCase?> = arrayListOf()) :
+class ProvinceDataCaseAdapter(
+    var list: List<ProvinceDataCase?> = arrayListOf()) :
     RecyclerView.Adapter<ProvinceDataCaseAdapter.ProvinceViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProvinceViewHolder {
