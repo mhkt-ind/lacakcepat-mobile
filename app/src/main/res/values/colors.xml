@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Primary -->
     <color name="colorPrimary">#08CEFB</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimaryDark">#EBEBEB</color>
+    <color name="colorTextPrimary">#333333</color>
+    <color name="colorDividePrimary">#EBEBEB</color>
+
+    <!-- Secondary -->
+    <color name="colorTextSecondary">#828282</color>
+    <color name="colorDivideSecondary">#BDBDBD</color>
+
+    <color name="colorAccent">#08CEFB</color>
     <color name="colorSecondary">#3278FE</color>
 
     <!-- Status Bar -->

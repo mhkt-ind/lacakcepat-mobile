@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="news"
+            type="id.lacakcepat.covidnineteen.data.source.remote.model.News" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginPrimary"
+        android:layout_marginTop="@dimen/marginPrimary"
+        android:layout_marginEnd="@dimen/marginPrimary"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="@dimen/cornerPrimary"
+        app:cardElevation="@dimen/elevationPrimary">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_news"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="centerCrop"
+                app:displayImageWithCoil="@{news.image}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <View
+                android:id="@+id/v_opacity"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="#80333333"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/TextButtonPrimary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginPrimary"
+                android:layout_marginTop="@dimen/marginPrimary"
+                android:layout_marginEnd="@dimen/marginPrimary"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{news.title ?? @string/unknown}"
+                android:textAllCaps="false"
+                android:textColor="@color/colorTextPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_news"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="@string/dummy_title" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                style="@style/TextCaptionPrimary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginPrimary"
+                android:layout_marginEnd="@dimen/marginPrimary"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{news.description ?? @string/unknown}"
+                android:textColor="@color/colorTextSecondary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_news"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="@string/dummy_overview" />
+
+            <TextView
+                android:id="@+id/tv_time_ago"
+                style="@style/TextCaptionSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/marginPrimary"
+                android:layout_marginBottom="@dimen/marginPrimary"
+                android:drawableStart="@drawable/ic_time_ago"
+                android:drawablePadding="@dimen/paddingSmall"
+                android:textColor="@color/colorTextSecondary"
+                app:displayDateTimeAgo="@{news.publishedAt}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                tools:text="@string/dummy_time_ago" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

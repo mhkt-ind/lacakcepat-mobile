@@ -60,7 +60,7 @@
 
             <TextView
                 android:id="@+id/txtPhoneNumber"
-                style="@style/TextContent.Small"
+                style="@style/TextCaptionPrimary"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -108,7 +108,7 @@
 
             <TextView
                 android:id="@+id/txtConditionTitle"
-                style="@style/TextContent.Standard.Bold"
+                style="@style/TextBodyPrimary.Bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/user_condition_title"
@@ -118,7 +118,7 @@
 
             <TextView
                 android:id="@+id/txtConditionSubtitle"
-                style="@style/TextContent.Small"
+                style="@style/TextCaptionPrimary"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/user_condition_subtitle"
@@ -170,7 +170,7 @@
 
             <TextView
                 android:id="@+id/txtInteractionReportTitle"
-                style="@style/TextContent.Standard.Bold"
+                style="@style/TextBodyPrimary.Bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/normal_spacing"
@@ -192,7 +192,7 @@
 
             <TextView
                 android:id="@+id/txtHealthyReportLabel"
-                style="@style/TextContent.Small"
+                style="@style/TextCaptionPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/health_condition"
@@ -206,7 +206,7 @@
 
             <TextView
                 android:id="@+id/txtHealthyReportValue"
-                style="@style/TextContent.Standard"
+                style="@style/TextBodyPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/greenColor"
@@ -231,7 +231,7 @@
 
             <TextView
                 android:id="@+id/txtOdpReportLabel"
-                style="@style/TextContent.Small"
+                style="@style/TextCaptionPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/odp_condition"
@@ -245,7 +245,7 @@
 
             <TextView
                 android:id="@+id/txtOdpReportValue"
-                style="@style/TextContent.Standard"
+                style="@style/TextBodyPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/yellowColor"
@@ -270,7 +270,7 @@
 
             <TextView
                 android:id="@+id/txtPositiveReportLabel"
-                style="@style/TextContent.Small"
+                style="@style/TextCaptionPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/odp_condition"
@@ -284,7 +284,7 @@
 
             <TextView
                 android:id="@+id/txtPositiveReportValue"
-                style="@style/TextContent.Standard"
+                style="@style/TextBodyPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/redColor"
@@ -334,7 +334,7 @@
 
                         <TextView
                             android:id="@+id/textView9"
-                            style="@style/TextContent.Standard.Bold"
+                            style="@style/TextBodyPrimary.Bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -387,7 +387,7 @@
 
                         <TextView
                             android:id="@+id/textView10"
-                            style="@style/TextContent.Standard.Bold"
+                            style="@style/TextBodyPrimary.Bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -440,7 +440,7 @@
 
                         <TextView
                             android:id="@+id/textView11"
-                            style="@style/TextContent.Standard.Bold"
+                            style="@style/TextBodyPrimary.Bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -503,7 +503,7 @@
 
                         <TextView
                             android:id="@+id/textBeriRating"
-                            style="@style/TextContent.Standard.Bold"
+                            style="@style/TextBodyPrimary.Bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -546,7 +546,7 @@
 
                         <TextView
                             android:id="@+id/textExit"
-                            style="@style/TextContent.Standard.Bold"
+                            style="@style/TextBodyPrimary.Bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"

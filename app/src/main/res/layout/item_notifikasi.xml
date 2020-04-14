@@ -6,7 +6,7 @@
 
     <TextView
         android:id="@+id/notifTitle"
-        style="@style/TextContent.Standard.Bold"
+        style="@style/TextBodyPrimary.Bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/notifComment"
-        style="@style/TextContent.Standard"
+        style="@style/TextBodyPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

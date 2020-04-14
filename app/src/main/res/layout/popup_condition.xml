@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/TextHeadingPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginSecondary"
+        android:layout_marginTop="@dimen/marginSecondary"
+        android:layout_marginEnd="@dimen/marginSecondary"
+        android:gravity="center"
+        android:text="@string/popup_health_condition_title"
+        android:textColor="@color/colorTextPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_positive"
+        style="@style/TextButtonPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginSecondary"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="@dimen/marginSecondary"
+        android:background="@drawable/bg_button_primary"
+        android:text="@string/user_positive_covid"
+        android:textColor="@color/whiteText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_odp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginSecondary"
+        android:layout_marginTop="@dimen/marginPrimary"
+        android:layout_marginEnd="@dimen/marginSecondary"
+        android:background="@drawable/bg_button_primary"
+        android:text="@string/user_odp_covid"
+        android:textColor="@color/whiteText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_positive"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_healthy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginSecondary"
+        android:layout_marginTop="@dimen/marginPrimary"
+        android:layout_marginEnd="@dimen/marginSecondary"
+        android:background="@drawable/bg_button_primary"
+        android:text="@string/user_healthy"
+        android:textColor="@color/whiteText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_odp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_overview"
+        style="@style/TextCaptionPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginSecondary"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="@dimen/marginSecondary"
+        android:layout_marginEnd="@dimen/marginSecondary"
+        android:gravity="center"
+        android:text="@string/popup_health_condition_overview"
+        android:textColor="@color/colorTextSecondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_healthy"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

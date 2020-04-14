@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="countryCase"
+            type="id.lacakcepat.covidnineteen.data.source.remote.model.response.kawalcorona.CountryCaseResponse" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_app_name"
+                    style="@style/TextHeadingPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/marginSecondary"
+                    android:layout_marginTop="@dimen/marginSecondary"
+                    android:text="@string/lacakcepat"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ImageView
+                    android:id="@+id/iv_active_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/marginPrimary"
+                    android:src="@drawable/ic_active"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_active_indicator"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_active_indicator"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_active_indicator"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/tv_active_indicator"
+                    style="@style/TextBodyPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/marginSecondary"
+                    android:text="@string/active"
+                    android:textColor="@color/greenColor"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_app_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_app_name" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_home_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="166dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_app_name"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:listitem="@layout/adapter_home_header" />
+
+                <LinearLayout
+                    android:id="@+id/ll_covid_case"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/marginSecondary"
+                    android:layout_marginTop="@dimen/marginPrimary"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_home_header"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <TextView
+                        android:id="@+id/tv_covid_case"
+                        style="@style/TextHeadingPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/covid_case" />
+
+                    <TextView
+                        style="@style/TextCaptionPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_location_grey"
+                        android:drawablePadding="@dimen/paddingPrimary"
+                        android:text="@string/indonesia" />
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TextCaptionPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/marginSecondary"
+                    android:background="@drawable/bg_button_stroke"
+                    android:paddingStart="@dimen/paddingSecondary"
+                    android:paddingEnd="@dimen/paddingSecondary"
+                    android:text="@string/see_details"
+                    android:textColor="@color/colorAccent"
+                    app:layout_constraintBottom_toBottomOf="@id/ll_covid_case"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ll_covid_case" />
+
+                <HorizontalScrollView
+                    android:id="@+id/nsv_covid_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_covid_case"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="150dp"
+                            android:layout_height="180dp"
+                            android:layout_marginStart="@dimen/marginPrimary"
+                            android:layout_marginTop="@dimen/marginPrimary"
+                            android:layout_marginBottom="@dimen/marginPrimary"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            app:cardCornerRadius="@dimen/cornerPrimary"
+                            app:cardElevation="@dimen/elevationPrimary">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/marginSecondary"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/ic_pdp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.0"
+                                    tools:ignore="ContentDescription" />
+
+                                <TextView
+                                    style="@style/TextHeadingPrimary"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/marginSecondary"
+                                    android:layout_marginEnd="@dimen/marginSecondary"
+                                    android:gravity="center"
+                                    android:maxLines="1"
+                                    android:text="@{countryCase.positive ?? @string/unknown}"
+                                    android:textColor="@color/yellowColor"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:text="@string/dummy_count" />
+
+                                <TextView
+                                    android:id="@+id/textView"
+                                    style="@style/TextBodyPrimary"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/marginSecondary"
+                                    android:text="@string/patient_in_care"
+                                    android:textColor="@color/yellowColor"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="1.0" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="150dp"
+                            android:layout_height="180dp"
+                            android:layout_marginStart="@dimen/marginPrimary"
+                            android:layout_marginTop="@dimen/marginPrimary"
+                            android:layout_marginBottom="@dimen/marginPrimary"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            app:cardCornerRadius="@dimen/cornerPrimary"
+                            app:cardElevation="@dimen/elevationPrimary">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/marginSecondary"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/ic_cure"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.0"
+                                    tools:ignore="ContentDescription" />
+
+                                <TextView
+                                    style="@style/TextHeadingPrimary"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/marginSecondary"
+                                    android:layout_marginEnd="@dimen/marginSecondary"
+                                    android:gravity="center"
+                                    android:maxLines="1"
+                                    android:text="@{countryCase.getWell ?? @string/unknown}"
+                                    android:textColor="@color/greenColor"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:text="@string/dummy_count" />
+
+                                <TextView
+                                    style="@style/TextBodyPrimary"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/marginSecondary"
+                                    android:text="@string/get_well"
+                                    android:textColor="@color/greenColor"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="1.0" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="150dp"
+                            android:layout_height="180dp"
+                            android:layout_marginStart="@dimen/marginPrimary"
+                            android:layout_marginTop="@dimen/marginPrimary"
+                            android:layout_marginBottom="@dimen/marginPrimary"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            app:cardCornerRadius="@dimen/cornerPrimary"
+                            app:cardElevation="@dimen/elevationPrimary">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/marginSecondary"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/ic_death"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.0"
+                                    tools:ignore="ContentDescription" />
+
+                                <TextView
+                                    style="@style/TextHeadingPrimary"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/marginSecondary"
+                                    android:layout_marginEnd="@dimen/marginSecondary"
+                                    android:gravity="center"
+                                    android:maxLines="1"
+                                    android:text="@{countryCase.death ?? @string/unknown}"
+                                    android:textColor="@color/redColor"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:text="@string/dummy_count" />
+
+                                <TextView
+                                    style="@style/TextBodyPrimary"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/marginSecondary"
+                                    android:text="@string/death"
+                                    android:textColor="@color/redColor"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="1.0" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+                <TextView
+                    android:id="@+id/tv_latest_news"
+                    style="@style/TextHeadingPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/marginSecondary"
+                    android:layout_marginTop="@dimen/marginPrimary"
+                    android:text="@string/latest_news"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nsv_covid_case"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    style="@style/TextCaptionPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/marginSecondary"
+                    android:background="@drawable/bg_button_stroke"
+                    android:paddingStart="@dimen/paddingSecondary"
+                    android:paddingEnd="@dimen/paddingSecondary"
+                    android:text="@string/see_details"
+                    android:textColor="@color/colorAccent"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_latest_news"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_latest_news" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_news"
+                    android:layout_width="match_parent"
+                    android:layout_height="136dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_latest_news"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:listitem="@layout/adapter_news" />
+
+                <TextView
+                    android:id="@+id/tv_distribution_map"
+                    style="@style/TextHeadingPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/marginSecondary"
+                    android:layout_marginTop="@dimen/marginPrimary"
+                    android:text="@string/distribution_map"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_news"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    style="@style/TextCaptionPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/marginSecondary"
+                    android:background="@drawable/bg_button_stroke"
+                    android:paddingStart="@dimen/paddingSecondary"
+                    android:paddingEnd="@dimen/paddingSecondary"
+                    android:text="@string/see_details"
+                    android:textColor="@color/colorAccent"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_distribution_map"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_distribution_map" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

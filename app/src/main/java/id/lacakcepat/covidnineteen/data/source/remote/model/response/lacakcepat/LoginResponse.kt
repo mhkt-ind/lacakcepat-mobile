@@ -1,18 +1,20 @@
 package id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat
 
 import com.google.gson.annotations.SerializedName
+import id.lacakcepat.covidnineteen.data.source.remote.model.User
 
 data class LoginResponse(
-    @SerializedName("code")
-    val code: Int,
-    @SerializedName("otp_code")
-    val otpCode: Int,
-    @SerializedName("status")
-    val status: String,
-    @SerializedName("user_data")
-    val loginData: LoginData,
-    @SerializedName("message")
-    val message: String,
+
     @SerializedName("token")
-    val token: String
+    var token: String? = null,
+
+    @SerializedName("otp_code")
+    var otpCode: Int? = null,
+
+    @SerializedName("code")
+    var code: Int? = null,
+
+    @SerializedName("user_data")
+    var user: User
+
 )

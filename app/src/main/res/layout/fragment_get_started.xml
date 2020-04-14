@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <TextView
+        android:id="@+id/tv_app_name"
+        style="@style/TextHeadingPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginSecondary"
+        android:layout_marginTop="@dimen/marginSecondary"
+        android:text="@string/lacakcepat"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/btn_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/marginSecondary"
+        android:background="@null"
+        android:src="@drawable/ic_indonesia"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_app_name"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/iv_started_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_get_started"
+        app:layout_constraintBottom_toTopOf="@+id/tv_started_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_app_name"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv_started_title"
+        style="@style/TextHeadingPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginHorizontal"
+        android:layout_marginEnd="@dimen/marginHorizontal"
+        android:layout_marginBottom="@dimen/marginPrimary"
+        android:gravity="center"
+        android:text="@string/get_started_title"
+        app:layout_constraintBottom_toTopOf="@+id/tv_started_ov"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tv_started_ov"
+        style="@style/TextBodyPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginSecondary"
+        android:layout_marginEnd="@dimen/marginSecondary"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:text="@string/get_started_overview"
+        app:layout_constraintBottom_toTopOf="@+id/ll_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <LinearLayout
+        android:id="@+id/ll_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/marginPrimary"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/ll_footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            style="@style/TextButtonPrimary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPrimary"
+            android:layout_marginEnd="@dimen/marginSmall"
+            android:layout_marginBottom="@dimen/marginPrimary"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_secondary"
+            android:text="@string/masuk"
+            android:textColor="@color/colorTextPrimary" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_register"
+            style="@style/TextButtonPrimary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginSmall"
+            android:layout_marginEnd="@dimen/marginPrimary"
+            android:layout_marginBottom="@dimen/marginPrimary"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_primary"
+            android:text="@string/daftar" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/marginPrimary"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            style="@style/TextCaptionSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/terms_of_use"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/TextCaptionSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginSmall"
+            android:layout_marginEnd="@dimen/marginSmall"
+            android:text="@string/dan" />
+
+        <TextView
+            style="@style/TextCaptionSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/privacy_policy"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

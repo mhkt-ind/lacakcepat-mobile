@@ -1,111 +1,79 @@
 package id.lacakcepat.covidnineteen.ui.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import dagger.android.support.AndroidSupportInjection
+import androidx.navigation.fragment.findNavController
 import id.lacakcepat.covidnineteen.R
-import id.lacakcepat.covidnineteen.data.source.remote.model.FormState
-import id.lacakcepat.covidnineteen.data.source.repository.Result
-import id.lacakcepat.covidnineteen.utilities.SharedPreference
-import id.lacakcepat.covidnineteen.utilities.afterTextChanged
+import id.lacakcepat.covidnineteen.data.source.remote.model.User
+import id.lacakcepat.covidnineteen.databinding.FragmentLoginBinding
+import id.lacakcepat.covidnineteen.extension.visible
+import id.lacakcepat.covidnineteen.ui.activity.OtpVerificationActivity
+import id.lacakcepat.covidnineteen.ui.base.BaseFragment
 import id.lacakcepat.covidnineteen.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
+import org.jetbrains.anko.support.v4.longToast
+import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
-import javax.inject.Inject
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
-    @set:Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    @set:Inject
-    lateinit var sharedPref: SharedPreference
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidSupportInjection.inject(this)
-        super.onCreate(savedInstanceState)
+    private val viewModel by lazy {
+        ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_login, container, false)
-    }
+    override fun getContentView() = R.layout.fragment_login
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val viewModel = activity?.let { ViewModelProvider(it, viewModelFactory).get(LoginViewModel::class.java) }
-        viewModel?.formState?.observe(this, Observer {
-            lanjut_button.isEnabled = it.isDataValid
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
-            if(it.isDataValid) {
-                lanjut_button.setBackgroundResource(R.drawable.pill_button)
-            } else {
-                lanjut_button.setBackgroundResource(R.drawable.pill_button_disable)
-            }
+        getViewBinding().let {
+            it.viewModel = viewModel
+            it.user = User()
+        }
 
-            if (it.phoneError != null) {
-                phoneInput.error = getString(it.phoneError)
-                //phoneError.text = getString(it.phoneError)
+        iv_back.setOnClickListener { findNavController().navigateUp() }
+
+        viewModel.isEnableToLogin.observe(viewLifecycleOwner, Observer {
+            btn_continue.isEnabled = it
+            if (btn_continue.isEnabled)
+                btn_continue.setBackgroundResource(R.drawable.bg_button_primary)
+            else {
+                btn_continue.setBackgroundResource(R.drawable.bg_button_disabled)
+                tv_error_phone.text = getString(R.string.phone_error)
             }
         })
 
-        viewModel?.loginData?.observe(this, Observer {
-            when(it) {
-                is Result.Success -> {
-                    if(it.data?.code == 200) {
-                        sharedPref.save("OTP", it.data.otpCode)
-                        sharedPref.save("TOKEN", it.data.token)
-                        sharedPref.save("USERID", it.data.loginData.userId)
-                        sharedPref.save("FULLNAME", it.data.loginData.fullname)
-                        sharedPref.save("PHONENUMBER", it.data.loginData.phoneNumber)
+        viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
 
-                        sharedPref.save("ISLOGIN", true)
+            if (it != null)
+                when (it.code) {
 
-                        viewModel.fragmentSate.postValue(2)
-                        viewModel.loginData.postValue(Result.Empty("Cleared"))
-                        viewModel.formState.value = FormState(isDataValid = false)
-                    } else {
-                        lanjut_button.isEnabled = true
-                        lanjut_button.setBackgroundResource(R.drawable.pill_button)
-                        toast(it.data?.message.toString())
+                    200 -> {
+                        longToast("OTP: ${it.otpCode}")
+
+                        val user = User(
+                            id = it.user.id,
+                            phoneNumber = getViewBinding().user?.phoneNumber,
+                            token = it.token,
+                            otpCode = it.otpCode
+                        )
+                        startActivity<OtpVerificationActivity>("USER" to user)
                     }
+
+                    502 -> {
+                        tv_error_phone.let { tv ->
+                            tv.text = getString(R.string.number_is_not_registered)
+                            tv.visible()
+                        }
+                    }
+
                 }
-                is Result.Error -> {
-                    lanjut_button.isEnabled = true
-                    lanjut_button.setBackgroundResource(R.drawable.pill_button)
-                    toast(it.exception.toString())
-                }
-            }
+            else
+                toast(getString(R.string.connect_to_server_failed))
+
         })
 
-        phoneInput.afterTextChanged {
-            viewModel?.loginDataChanged(
-                phoneInput.text.toString()
-            )
-        }
-
-        lanjut_button.setOnClickListener {
-            lanjut_button.isEnabled = false
-            lanjut_button.setBackgroundResource(R.drawable.pill_button_disable)
-            viewModel?.loginUser(phoneInput.text.toString())
-        }
-
-        tidak_button.setOnClickListener {
-            activity?.finish()
-        }
-
-        back_button.setOnClickListener {
-            activity?.finish()
-        }
     }
 
-    companion object {
-        fun newInstance(): LoginFragment = LoginFragment()
-    }
 }

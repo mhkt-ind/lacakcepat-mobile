@@ -1,38 +1,29 @@
 package id.lacakcepat.covidnineteen.ui.activity
 
 import android.os.Bundle
+import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import dagger.android.AndroidInjection
+import androidx.core.os.postDelayed
 import id.lacakcepat.covidnineteen.R
-import id.lacakcepat.covidnineteen.utilities.SharedPreference
-import org.jetbrains.anko.intentFor
-import java.util.*
-import javax.inject.Inject
-import kotlin.concurrent.timerTask
+import org.jetbrains.anko.startActivity
 
 class SplashActivity : AppCompatActivity() {
 
-    @set:Inject
-    lateinit var sharedPref: SharedPreference
+    private companion object {
+        const val LOADING_TIME = 3000L
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        Timer().schedule(timerTask {
-            when {
-                sharedPref.getValueBoolean("GETSTARTED", false) -> {
-                    startActivity(intentFor<MainActivity>())
-                }
-                sharedPref.getValueBoolean("ONBOARDING", false) -> {
-                    startActivity(intentFor<GetStartedActivity>())
-                }
-                else -> {
-                    startActivity(intentFor<OnBoardingActivity>())
-                }
-            }
+        Handler().postDelayed(LOADING_TIME) {
+
+            startActivity<OnBoardingActivity>()
             finish()
-        }, 2000)
+
+        }
+
     }
+
 }

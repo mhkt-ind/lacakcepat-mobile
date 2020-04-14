@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/nav_home"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="id.lacakcepat.covidnineteen.ui.fragment.HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_home_to_nav_history_interaction"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:destination="@id/nav_history_interaction" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_history_interaction"
+        android:name="id.lacakcepat.covidnineteen.ui.fragment.RiwayatFragment"
+        tools:layout="@layout/fragment_riwayat">
+        <action
+            android:id="@+id/action_nav_history_interaction_to_nav_notification"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:destination="@id/nav_notification" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_notification"
+        android:name="id.lacakcepat.covidnineteen.ui.fragment.NotifikasiFragment"
+        tools:layout="@layout/fragment_notifikasi">
+        <action
+            android:id="@+id/action_nav_notification_to_nav_profile"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:destination="@id/nav_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="id.lacakcepat.covidnineteen.ui.fragment.ProfileFragment"
+        tools:layout="@layout/fragment_profil" />
+
+</navigation>

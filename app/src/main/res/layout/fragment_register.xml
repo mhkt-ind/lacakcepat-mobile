@@ -1,123 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="id.lacakcepat.covidnineteen.viewmodel.RegisterViewModel" />
+
+        <variable
+            name="user"
+            type="id.lacakcepat.covidnineteen.data.source.remote.model.User" />
+
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
-        <ImageButton
-            android:id="@+id/back_button"
-            android:layout_width="50dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:background="@null"
-            android:contentDescription="@string/back_button"
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:isVisibleOrGone="@{viewModel.isVisibleProgressBar()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginSecondary"
+            android:layout_marginTop="@dimen/marginSecondary"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_back"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/textTitle"
-            style="@style/TextContent.Medium"
+            android:id="@+id/tv_register_title"
+            style="@style/TextHeadingPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/marginSecondary"
+            android:layout_marginTop="@dimen/marginSecondary"
+            android:text="@string/daftar"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_back"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <!--suppress AndroidUnknownAttribute -->
+        <EditText
+            android:id="@+id/et_name"
+            style="@style/TextBodyPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginSecondary"
             android:layout_marginTop="32dp"
-            android:text="@string/daftar"
-            android:textColor="@color/grey1Text"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/back_button" />
-
-        <EditText
-            android:id="@+id/namaInput"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginEnd="@dimen/marginSecondary"
+            android:background="@drawable/bg_field_primary"
             android:hint="@string/nama"
-            android:autofillHints=""
-            android:ems="10"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:backgroundTint="@color/grey2Text"
-            android:background="@drawable/button_round"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
+            android:onTextChanged="@{(text, start, before, count) -> viewModel.validateName(text) }"
+            android:padding="@dimen/paddingPrimary"
+            android:text="@={user.fullName}"
+            android:textColor="@color/colorTextPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_register_title"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/namaError"
-            style="@style/TextContent.Standard"
+            android:id="@+id/tv_error_name"
+            style="@style/TextCaptionPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginSecondary"
+            android:text="@string/nama_min_4_karakter"
             android:textColor="@color/redColor"
-            tools:text="@string/nama_min_4_karakter"
-            app:layout_constraintEnd_toEndOf="@+id/namaInput"
-            app:layout_constraintTop_toBottomOf="@+id/namaInput" />
+            app:isVisibleOrInvisible="@{viewModel.isVisibleErrorName()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_name"
+            app:layout_constraintVertical_bias="0.0" />
 
+        <ImageView
+            android:id="@+id/iv_phone_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginSecondary"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_phone_code_indonesia"
+            app:layout_constraintBottom_toBottomOf="@+id/et_phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/et_phone"
+            tools:ignore="ContentDescription" />
+
+        <!--suppress AndroidUnknownAttribute -->
         <EditText
-            android:id="@+id/phoneInput"
-            android:layout_width="240dp"
+            android:id="@+id/et_phone"
+            style="@style/TextBodyPrimary"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_marginTop="40dp"
-            android:autofillHints="@string/text_phone_number_hint"
-            android:ems="10"
+            android:layout_marginStart="@dimen/marginPrimary"
+            android:layout_marginTop="@dimen/marginPrimary"
+            android:layout_marginEnd="@dimen/marginPrimary"
+            android:background="@drawable/bg_field_primary"
             android:hint="@string/text_phone_number_hint"
+            android:importantForAutofill="no"
             android:inputType="phone"
-            android:backgroundTint="@color/grey2Text"
-            android:background="@drawable/button_round"
-            app:layout_constraintEnd_toEndOf="@+id/namaInput"
-            app:layout_constraintStart_toEndOf="@+id/phoneText"
-            app:layout_constraintTop_toBottomOf="@+id/namaInput" />
+            android:maxLength="16"
+            android:onTextChanged="@{(text, start, before, count) -> viewModel.validatePhone(text) }"
+            android:padding="@dimen/paddingPrimary"
+            android:text="@={user.phoneNumber}"
+            android:textColor="@color/colorTextPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_phone_code"
+            app:layout_constraintTop_toBottomOf="@+id/tv_error_name"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/phoneError"
-            style="@style/TextContent.Standard"
+            android:id="@+id/tv_error_phone"
+            style="@style/TextCaptionPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginSecondary"
+            android:text="@string/phone_error"
             android:textColor="@color/redColor"
-            tools:text="@string/nomor_telepon_tidak_boleh_kosong"
-            app:layout_constraintEnd_toEndOf="@+id/phoneInput"
-            app:layout_constraintTop_toBottomOf="@+id/phoneInput" />
+            app:isVisibleOrInvisible="@{viewModel.isVisibleErrorPhone()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_phone"
+            app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/phoneText"
-            android:layout_width="40dp"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_register"
+            style="@style/TextButtonPrimary"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/kode_notelp_indonesia"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/phoneInput"
-            app:layout_constraintStart_toStartOf="@+id/namaInput"
-            app:layout_constraintTop_toTopOf="@+id/phoneInput" />
-
-        <Button
-            android:id="@+id/daftar_button"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="50dp"
-            android:text="@string/daftar"
+            android:layout_marginStart="@dimen/marginSecondary"
+            android:layout_marginEnd="@dimen/marginSecondary"
+            android:layout_marginBottom="@dimen/marginSecondary"
+            android:background="@drawable/bg_button_disabled"
             android:enabled="false"
-            android:background="@drawable/pill_button_disable"
-            android:textColor="@color/whiteText"
+            android:onClick="@{() -> viewModel.doRegister(user)}"
+            android:text="@string/daftar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phoneError" />
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/daftar_button" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+</layout>

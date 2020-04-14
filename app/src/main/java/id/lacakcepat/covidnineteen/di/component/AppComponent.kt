@@ -4,31 +4,29 @@ import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
-import id.lacakcepat.covidnineteen.LacakCepatApp
+import dagger.android.AndroidInjector
+import dagger.android.support.AndroidSupportInjectionModule
+import id.lacakcepat.covidnineteen.di.App
 import id.lacakcepat.covidnineteen.di.module.*
+import id.lacakcepat.covidnineteen.di.module.builder.ViewBuilder
 import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
     AndroidInjectionModule::class,
+    AndroidSupportInjectionModule::class,
     AppModule::class,
-    ApiModule::class,
-    RepositoryModule::class,
-    SharedPrefModule::class,
-    ActivityModule::class,
-    FragmentModule::class,
-    ViewModelModule::class
+    ViewBuilder::class
 ])
+interface AppComponent : AndroidInjector<App> {
 
-interface AppComponent {
     @Component.Builder
     interface Builder {
+
         @BindsInstance
         fun application(app: Application): Builder
-        @BindsInstance
-        fun apiModule(apiModule: ApiModule): Builder
         fun build(): AppComponent
+
     }
 
-    fun inject(app: LacakCepatApp)
 }

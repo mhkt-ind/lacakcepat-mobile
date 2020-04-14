@@ -1,17 +1,50 @@
 <resources>
-    <string name="app_name">Lacak Cepat</string>
-    <string name="lacak_cepat">Lacak Cepat</string>
-    <string name="splash_overview">Bersama kita cegah penyebaran Covid-19</string>
-    <string name="on_boarding1_title">Melacak Disekitar Anda</string>
-    <string name="on_boarding1_overview">Sistem akan memberi tahu anda jika di sekitar anda terdapat pengguna positif Covid-19.</string>
-    <string name="on_boarding2_title">Pasien Covid - 19</string>
-    <string name="on_boarding2_overview">Memberikan anda informasi mengenai status pasien Covid - 19 di Indonesia secara real time.</string>
-    <string name="on_boarding3_title">Informasi Covid - 19</string>
-    <string name="on_boarding3_overview">Memberikan anda informasi mengenai virus Covid - 19 dan cara pencegehan.</string>
 
-    <string name="skip">SKIP</string>
-    <string name="get_started_title">Selamat Datang di \nLacak Cepat</string>
-    <string name="get_started_overview">Membantu anda melacak Covid - 19 berdasarkan riwayat interaksi anda dengan orang lain.</string>
+    <!-- OnBoarding -->
+    <array name="on_boarding_img">
+        <item>@drawable/ic_on_boarding_1</item>
+        <item>@drawable/ic_on_boarding_2</item>
+        <item>@drawable/ic_on_boarding_3</item>
+    </array>
+
+    <string-array name="on_boarding_title">
+        <item>Melacak Disekitar Anda</item>
+        <item>Pasien Covid-19</item>
+        <item>Informasi Covid-19</item>
+    </string-array>
+
+    <string-array name="on_boarding_ov">
+        <item>Sistem akan memberi tahu anda jika di sekitar anda terdapat pengguna positif Covid-19.</item>
+        <item>Memberikan anda informasi mengenai status pasien Covid-19 di Indonesia secara real time.</item>
+        <item>Memberikan anda informasi mengenai virus Covid-19 dan cara pencegehan.</item>
+    </string-array>
+
+    <!-- Home Header -->
+    <string-array name="home_header_title">
+        <item>Tentang Covid-19</item>
+        <item>Pencegahan Covid-19</item>
+        <item>Ciri Positive Covid-19</item>
+    </string-array>
+
+    <string-array name="home_header_ov">
+        <item>Virus Corona adalah sebuah keluarga virus yang ditemukan pada manusia dan hewan. Sebagian virusnya dapat mengingeksi manusia serta menyebabkan berbagai penyakit, mulai dari penyakit umum seperti flu, hingga penyakit-penyakit yang lebih fatal, seperti Middle East Respiratory Syndrome (MERS) dan Severe Acute Respiratory Syndrome (SARS).</item>
+        <item>Hingga saat ini belum ditemukan vaksin untuk mencegah seseorang terinfeksi Virus Corona. Cara terbaik untuk melindungi diri kita adalah dengan menghindari kondisi atau tempat dimana Anda berpotensi terpapar virus tersebut. Sebuah lembaga pencegahan penyakit di Amerika, Center for Disease Control and Prevention (CDC) menyarankan Anda sejumlah hal-hal di bawah ini untuk mencegah penyebaran penyakit pernapasan.</item>
+        <item>Gejala awal virus corona COVID-19 yang dirasakan para pasien adalah demam, batuk, pilek, gangguan pernapasan, sakit tenggorokan, letih, dan lesu. Namun, sebagian pasien Covid-19 hanya mengalami gejala sakit ringan, dan bahkan sama sekali tidak mengalami gejala infeksi.\n\nBerdasarkan informasi di laman lembaga kesehatan AS, Centers for Disease Control and Prevention (CDC), lansia dan mereka yang memiliki riwayat gangguan kesehatan seperti diabetes, asma, atau penyakit jantung, memiliki resiko lebih tinggi, saat terinfeksi virus corona.</item>
+    </string-array>
+
+    <string-array name="home_header_img">
+        <item>@drawable/ic_about_covid</item>
+        <item>@drawable/ic_prevention_covid</item>
+        <item>@drawable/ic_positive_covid</item>
+    </string-array>
+
+    <string name="app_name">Lacak Cepat</string>
+    <string name="lacakcepat">LacakCepat</string>
+    <string name="splash_overview">Bersama kita cegah penyebaran Covid-19</string>
+
+    <string name="skip">Skip</string>
+    <string name="get_started_title">Selamat Datang di LacakCepat</string>
+    <string name="get_started_overview">Membantu anda melacak Covid-19 berdasarkan riwayat interaksi anda dengan orang lain.</string>
     <string name="dan">dan</string>
     <string name="terms_of_use">Terms of Use</string>
     <string name="privacy_policy">Privacy Policy</string>
@@ -19,7 +52,7 @@
     <string name="login_number_title">Masuk dengan nomor HP</string>
     <string name="login_number_overview">Masukkan nomor handphone anda untuk melanjutkan menggunakan aplikasi kami.</string>
     <string name="login_number_verification_title">Kode Verifikasi</string>
-    <string name="login_number_verification_overview">Kami telah mengirim kode verifikasi kepada +62</string>
+    <string name="login_number_verification_overview">Kami telah mengirim kode verifikasi kepada</string>
     <string name="lanjutkan">Lanjutkan</string>
     <string name="tidak_terima_kasih">TIDAK, TERIMA KASIH</string>
     <string name="text_phone_number_hint">813889…</string>
@@ -36,7 +69,7 @@
     <string name="notifikasi">Notifikasi</string>
     <string name="profil">Profil</string>
     <string name="name_error">Nama tidak boleh kosong dan minimal 4 huruf</string>
-    <string name="phone_error">Nomor HP tidak boleh kosong dan antara 11 sampai 16 angka</string>
+    <string name="phone_error">Format cth: 8xxxx</string>
     <string name="otp_error">Kode yang kamu masukkan salah</string>
     <string name="searchView_hint">Cari daerah persebaran disini…</string>
     <string name="back_button">Back Button</string>
@@ -51,7 +84,6 @@
     <string name="pdp">PDP</string>
     <string name="cure">Sembuh</string>
     <string name="death">Meninggal</string>
-    <string name="tentang_covid_19">Tentang Covid-19</string>
 
     <string name="user_condition_title">Kesehatan Anda</string>
     <string name="user_condition_subtitle">Isi sesuai dengan kondisi kesehatan anda saat ini.</string>
@@ -59,4 +91,30 @@
     <string name="positive_condition">Positif</string>
     <string name="health_condition">Sehat</string>
     <string name="user_interaction_report">Laporan Interaksi</string>
+    <string name="dummy_title">Dummy Title</string>
+    <string name="dummy_overview">Dummy Overview</string>
+    <string name="number_already_registered">Nomor anda sudah terdaftar!</string>
+    <string name="connect_to_server_failed">Koneksi ke server gagal, coba lagi!</string>
+    <string name="number_is_not_registered">Nomor anda belum terdaftar!</string>
+    <string name="phone_number_with_code">+62%s</string>
+    <string name="wrong_otp">OTP Salah!</string>
+    <string name="popup_health_condition_title">Kami perlu mengetahui kondisi kesehatan anda saat ini</string>
+    <string name="user_positive_covid">Saya positif Covid-19</string>
+    <string name="user_odp_covid">Saya ODP Covid-19</string>
+    <string name="user_healthy">Saya Sehat</string>
+    <string name="popup_health_condition_overview">Pastikan anda memberikan kondisi kesehatan anda dengan sebenar-benarnya. Karena aplikasi kami akan membagikan peringatan dini ke seluruh pengguna yang memiliki riwayat bersinggungan dengan anda. Jadi kami mohon kerja samanya untuk melawan Covid - 19.</string>
+    <string name="active">Aktif</string>
+    <string name="unknown">Tidak Diketahui</string>
+    <string name="covid_case">Kasus Covid-19</string>
+    <string name="see_details">Lihat Detail</string>
+    <string name="patient_in_care">Dalam Perawatan</string>
+    <string name="dummy_count">Dummy Count</string>
+    <string name="get_well">Sembuh</string>
+    <string name="latest_news">Berita Terkini</string>
+    <string name="dummy_time_ago">Jam lalu.</string>
+    <string name="seconds_ago">Detik yang lalu.</string>
+    <string name="minutes_ago">Menit yang lalu.</string>
+    <string name="hours_ago">Jam yang lalu.</string>
+    <string name="days_ago">Hari yang lalu.</string>
+    <string name="distribution_map">Peta Persebaran</string>
 </resources>

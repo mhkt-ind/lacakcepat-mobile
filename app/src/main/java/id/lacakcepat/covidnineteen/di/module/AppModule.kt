@@ -6,9 +6,17 @@ import dagger.Binds
 import dagger.Module
 import javax.inject.Singleton
 
-@Module
+@Module(
+    includes = [
+        ApiModule::class,
+        RepositoryModule::class,
+        SharedPrefModule::class
+    ]
+)
 abstract class AppModule {
+
     @Binds
     @Singleton
     abstract fun provideContext(application: Application): Context
+
 }

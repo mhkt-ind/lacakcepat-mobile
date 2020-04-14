@@ -5,11 +5,12 @@ import android.content.Context
 import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
-import id.lacakcepat.covidnineteen.utilities.SharedPreference
+import id.lacakcepat.covidnineteen.util.SharedPreference
 import javax.inject.Singleton
 
 @Module
 class SharedPrefModule {
+
     @Provides
     @Singleton
     fun provideSharedPreferences(application: Application): SharedPreferences =
@@ -18,4 +19,5 @@ class SharedPrefModule {
     @Provides
     @Singleton
     fun provideSharedPreference(sharedPref: SharedPreferences): SharedPreference = SharedPreference(sharedPref)
+
 }

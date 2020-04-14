@@ -1,62 +1,69 @@
 package id.lacakcepat.covidnineteen.viewmodel
 
+import android.util.Patterns
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import id.lacakcepat.covidnineteen.R
+import id.lacakcepat.covidnineteen.data.source.remote.model.User
 import id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat.LoginResponse
-import id.lacakcepat.covidnineteen.data.source.remote.model.response.lacakcepat.RegisterResponse
-import id.lacakcepat.covidnineteen.data.source.remote.model.FormState
 import id.lacakcepat.covidnineteen.data.source.repository.LacakCepatRepository
 import id.lacakcepat.covidnineteen.data.source.repository.Result
-import kotlinx.coroutines.async
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class LoginViewModel @Inject constructor(private val repository: LacakCepatRepository): ViewModel() {
-    var fragmentSate: MutableLiveData<Int> = MutableLiveData()
+class LoginViewModel @Inject constructor(private val repository: LacakCepatRepository) :
+    ViewModel() {
 
-    var loginData: MutableLiveData<Result<LoginResponse?>> = MutableLiveData()
-    var registerData: MutableLiveData<Result<RegisterResponse?>> = MutableLiveData()
-    var formState: MutableLiveData<FormState> = MutableLiveData()
+    private val _isVisibleProgressBar = MutableLiveData<Boolean>()
+    val isVisibleProgressBar: LiveData<Boolean>
+        get() = _isVisibleProgressBar
 
-    fun loginUser(phoneNumber: String) {
-        if(!isPhoneValid(phoneNumber)) return
+    private val _isVisibleErrorPhone = MutableLiveData<Boolean>()
+    val isVisibleErrorPhone: LiveData<Boolean>
+        get() = _isVisibleErrorPhone
 
-        viewModelScope.launch {
-            val loginResource = async { repository.loginUser("0$phoneNumber") }
-            loginData.postValue(loginResource.await())
+    private val _isEnableToLogin = MutableLiveData<Boolean>()
+    val isEnableToLogin: LiveData<Boolean>
+        get() = _isEnableToLogin
+
+    private val _loginResponse = MutableLiveData<LoginResponse>()
+    val loginResponse: LiveData<LoginResponse>
+        get() = _loginResponse
+
+    fun validatePhone(text: CharSequence?) {
+        _isVisibleErrorPhone.value = text?.let {
+            it.contains("+") ||
+                    it.indexOf("0") == 0 ||
+                    it.trim().length < 8 ||
+                    !Patterns.PHONE.matcher(it.trim()).matches()
         }
+        _isEnableToLogin.value = _isVisibleErrorPhone.value.let { it != null && !it }
     }
 
-    fun registerUser(name: String, phoneNumber: String) {
-        if(!isNameValid(name) || !isPhoneValid(phoneNumber)) return
+    fun doLogin(user: User) {
 
-        viewModelScope.launch {
-            val registerResource = async { repository.registerUser(name, "0$phoneNumber") }
-            registerData.postValue(registerResource.await())
+        _isVisibleProgressBar.value = true
+        GlobalScope.launch {
+
+            when (val response = repository.loginUser("+62${user.phoneNumber}")) {
+
+                is Result.Success -> {
+                    _isVisibleProgressBar.postValue(false)
+                    _loginResponse.postValue(response.data)
+                }
+
+                is Result.Error -> {
+                    _isVisibleProgressBar.postValue(false)
+                    _loginResponse.postValue(null)
+
+                    response.exception?.printStackTrace()
+                }
+
+            }
+
         }
+
     }
 
-    fun loginDataChanged(phone: String) {
-        if (!isPhoneValid(phone)) {
-            formState.value = FormState(phoneError = R.string.phone_error)
-        } else {
-            formState.value = FormState(isDataValid = true)
-        }
-    }
-
-    fun registerDataChanged(name: String, phone: String) {
-        if (!isNameValid(name)) {
-            formState.value = FormState(nameError = R.string.name_error)
-        } else if (!isPhoneValid(phone)) {
-            formState.value = FormState(phoneError = R.string.phone_error)
-        } else {
-            formState.value = FormState(isDataValid = true)
-        }
-    }
-
-    private fun isNameValid(username: String): Boolean = username.isNotBlank() && username.length > 4
-
-    private fun isPhoneValid(password: String): Boolean = password.isNotBlank() && password.length in 11..16
 }

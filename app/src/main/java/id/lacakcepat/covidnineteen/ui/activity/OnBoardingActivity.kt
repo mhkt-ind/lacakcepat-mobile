@@ -1,79 +1,111 @@
 package id.lacakcepat.covidnineteen.ui.activity
 
 import android.os.Bundle
-import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
-import dagger.android.AndroidInjection
 import id.lacakcepat.covidnineteen.R
-import id.lacakcepat.covidnineteen.ui.adapter.OnBoardingPageAdapter
-import id.lacakcepat.covidnineteen.ui.fragment.OnBoardingPageFragment
-import id.lacakcepat.covidnineteen.utilities.SharedPreference
-import kotlinx.android.synthetic.main.activity_onboarding.*
-import org.jetbrains.anko.intentFor
-import javax.inject.Inject
+import id.lacakcepat.covidnineteen.databinding.ActivityOnBoardingBinding
+import id.lacakcepat.covidnineteen.ui.adapter.OnBoardingAdapter
+import id.lacakcepat.covidnineteen.ui.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_on_boarding.*
+import org.jetbrains.anko.startActivity
 
-class OnBoardingActivity : AppCompatActivity() {
+class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
 
-    private var fragmentState: Int = 0
+    private companion object {
+        const val ANIMATE_SHOW = 1F
+        const val ANIMATE_HIDE = 0F
+        const val ANIMATE_TRANSITION = 100F
+        const val ANIMATE_DEFAULT_TRANSITION = 0F
+        const val ANIMATE_DURATION = 600L
+    }
 
-    @set:Inject
-    lateinit var sharedPref: SharedPreference
+    override fun getContentView() = R.layout.activity_on_boarding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_onboarding)
+    override fun onCreated(savedInstanceState: Bundle?) {
 
-        val listFragment = mutableListOf(
-            OnBoardingPageFragment.newInstance(resources.getString(R.string.on_boarding1_title), resources.getString(R.string.on_boarding1_overview), R.drawable.ic_on_boarding_1),
-            OnBoardingPageFragment.newInstance(resources.getString(R.string.on_boarding2_title), resources.getString(R.string.on_boarding2_overview), R.drawable.ic_on_boarding_2),
-            OnBoardingPageFragment.newInstance(resources.getString(R.string.on_boarding3_title), resources.getString(R.string.on_boarding3_overview), R.drawable.ic_on_boarding_3)
-        )
+        if (sharedPreference.getValueBoolean("ON_BOARDING", false))
+            gotoGetStartedPage()
 
-        val pagerAdapter =
-            OnBoardingPageAdapter(
-                supportFragmentManager,
-                listFragment
-            )
-        view_pager.adapter = pagerAdapter
-        tabs.setupWithViewPager(view_pager)
+        di_on_boarding.setViewPager(vp_on_boarding.apply {
+            adapter = OnBoardingAdapter(this@OnBoardingActivity)
+        })
 
-        next_btn.setOnClickListener {
-            if(fragmentState == listFragment.size - 1) {
-                sharedPref.save("ONBOARDING", true)
-                startActivity(intentFor<GetStartedActivity>())
-                finish()
-            } else {
-                view_pager.currentItem = fragmentState + 1
-            }
+        btn_continue.setOnClickListener { vp_on_boarding.currentItem += 1 }
+
+        tv_skip.setOnClickListener {
+            sharedPreference.save("ON_BOARDING", true)
+            gotoGetStartedPage()
         }
 
-        skip_btn.setOnClickListener {
-            sharedPref.save("ONBOARDING", true)
-            startActivity(intentFor<GetStartedActivity>())
-            finish()
+        btn_done.setOnClickListener {
+            sharedPreference.save("ON_BOARDING", true)
+            gotoGetStartedPage()
         }
 
-        view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {
-                Log.d("OnBoardingPage", "onPageScrollStateChanged: $state")
-            }
+        vp_on_boarding.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
 
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-                Log.d("OnBoardingPage", "onPageScrolled: $position")
-                fragmentState = position
+            override fun onPageScrollStateChanged(state: Int) {}
 
-                if(fragmentState == listFragment.size - 1) {
-                    next_btn.setImageResource(R.drawable.ic_check)
-                } else {
-                    next_btn.setImageResource(R.drawable.ic_next)
-                }
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
             }
 
             override fun onPageSelected(position: Int) {
-                Log.d("OnBoardingPage", "onPageSelected: $position")
+
+                when (position) {
+
+                    2 -> {
+
+                        // Button continue go down
+                        btn_continue.animate()
+                            .alpha(ANIMATE_HIDE)
+                            .translationY(ANIMATE_TRANSITION)
+                            .setDuration(ANIMATE_DURATION)
+                            .start()
+
+                        // Button done go up
+                        btn_done.animate()
+                            .alpha(ANIMATE_SHOW)
+                            .translationY(ANIMATE_DEFAULT_TRANSITION)
+                            .setDuration(ANIMATE_DURATION)
+                            .setStartDelay(300)
+                            .start()
+
+                    }
+
+                    else -> {
+
+                        // Button done go down
+                        btn_done.animate()
+                            .alpha(ANIMATE_HIDE)
+                            .translationY(ANIMATE_TRANSITION)
+                            .setDuration(ANIMATE_DURATION)
+                            .start()
+
+                        // Button continue go up
+                        btn_continue.animate()
+                            .alpha(ANIMATE_SHOW)
+                            .translationY(ANIMATE_DEFAULT_TRANSITION)
+                            .setDuration(ANIMATE_DURATION)
+                            .setStartDelay(300)
+                            .start()
+
+                    }
+
+                }
+
             }
+
         })
+
     }
+
+    private fun gotoGetStartedPage() {
+        startActivity<AuthActivity>()
+        finish()
+    }
+
 }

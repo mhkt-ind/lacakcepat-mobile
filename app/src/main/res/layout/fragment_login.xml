@@ -1,123 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="id.lacakcepat.covidnineteen.viewmodel.LoginViewModel" />
+
+        <variable
+            name="user"
+            type="id.lacakcepat.covidnineteen.data.source.remote.model.User" />
+
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
-        <ImageButton
-            android:id="@+id/back_button"
-            android:layout_width="50dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:background="@null"
-            android:contentDescription="@string/back_button"
-            android:src="@drawable/ic_back"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:isVisibleOrGone="@{viewModel.isVisibleProgressBar()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
-            android:id="@+id/img_logo"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="32dp"
-            android:contentDescription="@string/on_boarding1_title"
-            android:padding="5dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_input_number_phone"
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginSecondary"
+            android:layout_marginTop="@dimen/marginSecondary"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/back_button" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/iv_login_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_input_number_phone"
+            app:layout_constraintBottom_toTopOf="@+id/tv_login_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_back"
+            tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/textView"
-            style="@style/TextContent.Medium"
-            android:layout_width="0dp"
+            android:id="@+id/tv_login_title"
+            style="@style/TextHeadingPrimary"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="24dp"
+            android:layout_marginStart="@dimen/marginHorizontal"
+            android:layout_marginEnd="@dimen/marginHorizontal"
             android:gravity="center"
             android:text="@string/login_number_title"
-            android:textColor="@color/grey1Text"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_logo" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
-            style="@style/TextContent.Standard"
-            android:layout_width="0dp"
+            android:id="@+id/tv_login_ov"
+            style="@style/TextBodyPrimary"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
+            android:layout_marginStart="@dimen/marginHorizontal"
+            android:layout_marginTop="@dimen/marginPrimary"
+            android:layout_marginEnd="@dimen/marginHorizontal"
             android:gravity="center"
             android:text="@string/login_number_overview"
-            android:textColor="@color/greyText"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <Button
-            android:id="@+id/lanjut_button"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="@string/lanjutkan"
-            android:enabled="false"
-            android:background="@drawable/pill_button_disable"
-            android:textColor="@color/whiteText"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phoneInput" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_login_title"
+            app:layout_constraintVertical_bias="0.0" />
 
-        <Button
-            android:id="@+id/tidak_button"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+        <ImageView
+            android:id="@+id/iv_phone_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tidak_terima_kasih"
-            android:textColor="@color/blueText"
-            android:textSize="14sp"
+            android:layout_marginStart="@dimen/marginSecondary"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_phone_code_indonesia"
+            app:layout_constraintBottom_toBottomOf="@+id/et_phone"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.48"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lanjut_button" />
+            app:layout_constraintTop_toTopOf="@+id/et_phone"
+            tools:ignore="ContentDescription" />
 
+        <!--suppress AndroidUnknownAttribute -->
         <EditText
-            android:id="@+id/phoneInput"
-            android:layout_width="285dp"
+            android:id="@+id/et_phone"
+            style="@style/TextBodyPrimary"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:autofillHints="@string/text_phone_number_hint"
-            android:ems="10"
+            android:layout_marginStart="@dimen/marginPrimary"
+            android:layout_marginEnd="@dimen/marginSecondary"
+            android:background="@drawable/bg_field_primary"
             android:hint="@string/text_phone_number_hint"
+            android:importantForAutofill="no"
             android:inputType="phone"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:backgroundTint="@color/grey2Text"
-            android:background="@drawable/button_round"
-            app:layout_constraintEnd_toEndOf="@+id/lanjut_button"
+            android:maxLength="16"
+            android:onTextChanged="@{(text, start, before, count) -> viewModel.validatePhone(text)}"
+            android:padding="@dimen/paddingPrimary"
+            android:text="@={user.phoneNumber}"
+            android:textColor="@color/colorTextPrimary"
+            app:layout_constraintBottom_toTopOf="@+id/tv_error_phone"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintStart_toEndOf="@+id/iv_phone_code"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tv_error_phone"
+            style="@style/TextCaptionPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/kode_notelp_indonesia"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/phoneInput"
-            app:layout_constraintStart_toStartOf="@+id/lanjut_button"
-            app:layout_constraintTop_toTopOf="@+id/phoneInput" />
+            android:layout_marginStart="@dimen/marginSecondary"
+            android:layout_marginBottom="@dimen/marginSecondary"
+            android:text="@string/phone_error"
+            android:textColor="@color/redColor"
+            app:isVisibleOrInvisible="@{viewModel.isVisibleErrorPhone()}"
+            app:layout_constraintBottom_toTopOf="@+id/btn_continue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_continue"
+            style="@style/TextButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginSecondary"
+            android:layout_marginEnd="@dimen/marginSecondary"
+            android:layout_marginBottom="@dimen/marginSecondary"
+            android:background="@drawable/bg_button_disabled"
+            android:enabled="false"
+            android:text="@string/lanjutkan"
+            android:onClick="@{() -> viewModel.doLogin(user)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+</layout>

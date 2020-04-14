@@ -1,118 +1,81 @@
 package id.lacakcepat.covidnineteen.ui.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import dagger.android.support.AndroidSupportInjection
+import androidx.navigation.fragment.findNavController
 import id.lacakcepat.covidnineteen.R
-import id.lacakcepat.covidnineteen.data.source.remote.model.FormState
-import id.lacakcepat.covidnineteen.data.source.repository.Result
-import id.lacakcepat.covidnineteen.utilities.SharedPreference
-import id.lacakcepat.covidnineteen.utilities.afterTextChanged
-import id.lacakcepat.covidnineteen.viewmodel.LoginViewModel
+import id.lacakcepat.covidnineteen.data.source.remote.model.User
+import id.lacakcepat.covidnineteen.databinding.FragmentRegisterBinding
+import id.lacakcepat.covidnineteen.extension.visible
+import id.lacakcepat.covidnineteen.ui.activity.OtpVerificationActivity
+import id.lacakcepat.covidnineteen.ui.base.BaseFragment
+import id.lacakcepat.covidnineteen.viewmodel.RegisterViewModel
 import kotlinx.android.synthetic.main.fragment_register.*
+import org.jetbrains.anko.support.v4.longToast
+import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
-import javax.inject.Inject
 
-class RegisterFragment : Fragment() {
+class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
 
-    @set:Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    @set:Inject
-    lateinit var sharedPref: SharedPreference
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidSupportInjection.inject(this)
-        super.onCreate(savedInstanceState)
+    private val viewModel by lazy {
+        ViewModelProvider(this, viewModelFactory).get(RegisterViewModel::class.java)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_register, container, false)
-    }
+    override fun getContentView() = R.layout.fragment_register
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val viewModel = activity?.let { ViewModelProvider(it, viewModelFactory).get(LoginViewModel::class.java) }
-        viewModel?.formState?.observe(this, Observer {
-            daftar_button.isEnabled = it.isDataValid
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
-            if(it.isDataValid) {
-                daftar_button.setBackgroundResource(R.drawable.pill_button)
-            } else {
-                daftar_button.setBackgroundResource(R.drawable.pill_button_disable)
-            }
+        getViewBinding().let {
+            it.viewModel = viewModel
+            it.user = User()
+        }
 
-            if (it.nameError != null) {
-                namaInput.error = getString(it.nameError)
-                //namaError.text = getString(it.nameError)
-            }
-            if (it.phoneError != null) {
-                phoneInput.error = getString(it.phoneError)
-                //phoneError.text = getString(it.phoneError)
+        iv_back.setOnClickListener { findNavController().navigateUp() }
+
+        viewModel.isEnableToRegister.observe(viewLifecycleOwner, Observer {
+            btn_register.isEnabled = it
+            if (btn_register.isEnabled)
+                btn_register.setBackgroundResource(R.drawable.bg_button_primary)
+            else {
+                btn_register.setBackgroundResource(R.drawable.bg_button_disabled)
+                tv_error_phone.text = getString(R.string.phone_error)
             }
         })
 
-        viewModel?.registerData?.observe(this, Observer {
-            when(it) {
-                is Result.Success -> {
-                    if(it.data?.code == 200) {
-                        sharedPref.save("OTP", it.data.otpCode)
-                        sharedPref.save("TOKEN", it.data.token)
-                        sharedPref.save("USERID", it.data.userId)
-                        sharedPref.save("FULLNAME", namaInput.text.toString())
-                        sharedPref.save("PHONENUMBER", "0$phoneInput.text.toString()")
+        viewModel.registerResponse.observe(viewLifecycleOwner, Observer {
 
-                        viewModel.fragmentSate.postValue(2)
-                        viewModel.registerData.postValue(Result.Empty("Cleared"))
-                        viewModel.formState.value = FormState(isDataValid = false)
-                    } else {
-                        daftar_button.isEnabled = true
-                        daftar_button.setBackgroundResource(R.drawable.pill_button)
-                        toast(it.data?.message.toString())
+            if (it != null)
+                when (it.code) {
+
+                    200 -> {
+                        longToast("OTP: ${it.otpCode}")
+
+                        val user = User(
+                            id = it.userId,
+                            phoneNumber = getViewBinding().user?.phoneNumber,
+                            token = it.token,
+                            otpCode = it.otpCode
+                        )
+                        startActivity<OtpVerificationActivity>("USER" to user)
                     }
+
+                    502 -> {
+
+                        tv_error_phone.let { tv ->
+                            tv.text = getString(R.string.number_already_registered)
+                            tv.visible()
+                        }
+
+                    }
+
                 }
-                is Result.Error -> {
-                    daftar_button.isEnabled = true
-                    daftar_button.setBackgroundResource(R.drawable.pill_button)
-                    toast(it.exception.toString())
-                }
-            }
+            else
+                toast(getString(R.string.connect_to_server_failed))
+
         })
 
-        namaInput.afterTextChanged {
-            viewModel?.registerDataChanged(
-                namaInput.text.toString(),
-                phoneInput.text.toString()
-            )
-        }
-
-        phoneInput.afterTextChanged {
-            viewModel?.registerDataChanged(
-                namaInput.text.toString(),
-                phoneInput.text.toString()
-            )
-        }
-
-        daftar_button.setOnClickListener {
-            daftar_button.isEnabled = false
-            daftar_button.setBackgroundResource(R.drawable.pill_button_disable)
-            viewModel?.registerUser(namaInput.text.toString(), phoneInput.text.toString())
-        }
-
-        back_button.setOnClickListener {
-            activity?.finish()
-        }
-    }
-
-    companion object {
-        fun newInstance(): RegisterFragment = RegisterFragment()
     }
 
 }

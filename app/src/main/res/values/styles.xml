@@ -1,14 +1,14 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
-        <item name="android:statusBarColor">@color/colorStatusBar</item>
-        <item name="textAppearanceButton">@style/AppTextAppearance.Button</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -31,10 +31,37 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="TextContent.Bold">
-        <item name="android:textSize">24sp</item>
-        <item name="android:fontFamily">@font/poppins_bold</item>
+
+    <style name="TextHeadingPrimary">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/textHeadingPrimary</item>
     </style>
+
+    <style name="TextBodyPrimary">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/colorTextSecondary</item>
+        <item name="android:textSize">@dimen/textBodyPrimary</item>
+    </style>
+
+    <style name="TextButtonPrimary">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/textButtonPrimary</item>
+    </style>
+
+    <style name="TextCaptionPrimary">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/colorTextSecondary</item>
+        <item name="android:textSize">@dimen/textCaptionPrimary</item>
+    </style>
+
+    <style name="TextCaptionSecondary">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/textCaptionSecondary</item>
+    </style>
+
 
     <style name="TextContent.Medium">
         <item name="android:textSize">24sp</item>
@@ -46,21 +73,11 @@
         <item name="android:fontFamily">@font/poppins_medium</item>
     </style>
 
-    <style name="TextContent.Standard">
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/poppins</item>
-    </style>
-
-    <style name="TextContent.Standard.Bold">
+    <style name="TextBodyPrimary.Bold">
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="TextContent.Small">
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">@font/poppins</item>
-    </style>
-
-    <style name="TextContent.Small.Bold">
+    <style name="TextCaptionPrimary.Bold">
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -74,7 +91,7 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
-    <style name="RoundConditionStatus" parent="TextContent.Standard">
+    <style name="RoundConditionStatus" parent="TextBodyPrimary">
         <item name="android:layout_marginTop">@dimen/small_spacing</item>
         <item name="android:minWidth">80dp</item>
         <item name="android:padding">@dimen/tiny_spacing</item>

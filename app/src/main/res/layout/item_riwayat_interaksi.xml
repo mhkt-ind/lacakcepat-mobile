@@ -18,7 +18,7 @@
 
         <TextView
             android:id="@+id/tanggalInteraksi"
-            style="@style/TextContent.Standard.Bold"
+            style="@style/TextBodyPrimary.Bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/kontakLangsung"
-            style="@style/TextContent.Standard"
+            style="@style/TextBodyPrimary"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -40,7 +40,7 @@
 
         <TextView
             android:id="@+id/positiveCovid"
-            style="@style/TextContent.Standard"
+            style="@style/TextBodyPrimary"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -51,7 +51,7 @@
 
         <TextView
             android:id="@+id/kontakLangsungValue"
-            style="@style/TextContent.Standard"
+            style="@style/TextBodyPrimary"
             android:layout_width="140dp"
             android:textColor="@color/greenColor"
             android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
 
         <TextView
             android:id="@+id/positiveCovidValue"
-            style="@style/TextContent.Standard"
+            style="@style/TextBodyPrimary"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:textColor="@color/redColor"

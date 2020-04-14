@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth"
+    app:startDestination="@id/f_get_started"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/f_get_started"
+        android:name="id.lacakcepat.covidnineteen.ui.fragment.GetStartedFragment"
+        tools:layout="@layout/fragment_get_started">
+        <action
+            android:id="@+id/action_f_get_started_to_f_login"
+            app:destination="@id/f_login"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit" />
+        <action
+            android:id="@+id/action_f_get_started_to_f_register"
+            app:destination="@id/f_register"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/f_login"
+        android:name="id.lacakcepat.covidnineteen.ui.fragment.LoginFragment"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/f_register"
+        android:name="id.lacakcepat.covidnineteen.ui.fragment.RegisterFragment"
+        tools:layout="@layout/fragment_register" />
+
+</navigation>

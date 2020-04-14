@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit
 class ScanService : Service() {
 
     private var btAdapter: BluetoothAdapter? = null
-    var scheduleTaskExecutor: ScheduledExecutorService = Executors.newScheduledThreadPool(5)
+    private var scheduleTaskExecutor: ScheduledExecutorService = Executors.newScheduledThreadPool(5)
 
     companion object {
         private const val EXTRA_ADDRESS = "Device_Address"
